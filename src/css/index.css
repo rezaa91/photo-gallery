@@ -1,0 +1,18 @@
+header{
+    background-image:url('../img/img-3.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:700px;
+    background-attachment: fixed;
+    background-position: bottom;
+}
+#header-text{
+    padding-top:250px;
+    text-align:center;
+}
+#header-text h1{
+    font-size:60px;
+}
+#header-text h3{
+    font-size:30px;
+}

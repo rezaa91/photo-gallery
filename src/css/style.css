@@ -1,0 +1,89 @@
+/*
+DEFAULT STYLINGS
+*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+body{
+    font-family:sans-serif;
+}
+
+li{
+    list-style: none;
+}
+
+.btn{
+    border:1px solid black;
+    padding:5px 15px;
+    border-radius:10px;
+    text-decoration:none;
+}
+.btn:hover{
+    opacity:0.9;
+}
+
+.offset{
+    width:80%;
+    margin:auto;
+    padding:20px;
+}
+
+/*
+SIDE BAR
+*/
+#sidebar-wrapper{
+    border-right:2px solid rgb(147,142,148);
+    float:left;
+    height:100vh;
+    width:20%;
+    background-color:rgb(176,162,149);
+    position:fixed;
+}
+
+.nav-title{
+    margin-bottom:50px;
+    text-align:center;
+    padding:20px 0px;
+}
+.nav-title a{
+    color:rgb(85,122,149);
+    text-decoration:none;
+    font-family: 'Kaushan Script', cursive;
+    font-style:italic;
+    font-size:28px;
+}
+
+#sidebar-nav li a{
+    display:block;
+    text-align:center;
+    padding:25px 5px;
+    margin:5px 0px;
+    text-decoration: none;
+    color:black;
+}
+#sidebar-nav li a:hover{
+    background-color:rgb(93,92,97);
+    color:white;
+}
+
+#user-link{
+    position:absolute;
+    bottom:10px;
+}
+#user-link a{
+    padding:5px;
+}
+
+
+/*
+PAGE CONTENT
+*/
+#content-wrapper{
+    float:right;
+    width:80%;
+}
