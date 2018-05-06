@@ -37,35 +37,60 @@ li{
 SIDE BAR
 */
 #sidebar-wrapper{
-    border-right:2px solid rgb(147,142,148);
     float:left;
     height:100vh;
     width:20%;
-    background-color:rgb(176,162,149);
+    background-color:rgb(251,253,255);
     position:fixed;
 }
 
-.nav-title{
-    margin-bottom:50px;
+#sidebar-left{
+    width:15%;
+    float:left;
+    height:100vh;
+    background-color:white;
+    padding:10px 5px;
+    border-right:1px solid grey;
+}
+#sidebar-left a{
+    color:black;
+    font-size:22px;
     text-align:center;
-    padding:20px 0px;
+    display:block;
+}
+
+#sidebar-right{
+    width:85%;
+    float:left;
+}
+
+.nav-title{
+    text-align:center;
+    padding:30px 0px;
 }
 .nav-title a{
     color:rgb(85,122,149);
     text-decoration:none;
     font-family: 'Kaushan Script', cursive;
     font-style:italic;
-    font-size:28px;
+    font-size:18px;
+}
+.nav-title a:hover{
+    opacity:0.8;
 }
 
 #sidebar-nav li a{
     display:block;
-    text-align:center;
-    padding:25px 5px;
-    margin:5px 0px;
+    text-align:left;
+    padding:20px 10px;
     text-decoration: none;
     color:black;
+    border-top:1px solid grey;
 }
+.bottom{
+    border-bottom:1px solid grey;
+}
+
 #sidebar-nav li a:hover{
     background-color:rgb(93,92,97);
     color:white;
@@ -73,10 +98,19 @@ SIDE BAR
 
 #user-link{
     position:absolute;
-    bottom:10px;
+    bottom:0px;
+    width:85%;
 }
 #user-link a{
-    padding:5px;
+    display:block;
+    padding:22px 10px;
+    text-decoration:none;
+    color:black;
+    border-top:1px solid grey;
+}
+#user-link a:hover{
+    background-color:rgb(93,92,97);
+    color:white;
 }
 
 
