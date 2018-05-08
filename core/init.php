@@ -11,6 +11,11 @@ spl_autoload_register('class_loader');
 //begin the session
 session_start();
 
+//check for a user in the session - and check against the users OS and browser when first logged in
+if(isset($_SESSION['user']) && (isset($_SESSION['agent']) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
+    $user = $_SESSION['user'];
+}
+
 
 //connect to database
 try{
