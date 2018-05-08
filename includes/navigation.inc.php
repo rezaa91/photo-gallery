@@ -25,15 +25,31 @@
             </li>
 
             <li>
-                <a class="sidebar-link bottom" href="contact.php"><i class="fas fa-phone"></i> Contact</a>
+                <a class="sidebar-link" href="contact.php"><i class="fas fa-phone"></i> Contact</a>
             </li>
+            
+            <?php
+            //display administrative links if logged in user is an administrator
+            if(isset($user) && $user->isAdmin()){
+                echo 
+                '
+                <li>
+                    <a href="add_admin.php" class="sidebar-link"><i class="fas fa-users"></i> Add Administrators</a>
+                </li>
+                <li>
+                    <a href="upload.php" class="sidebar-link"><i class="fas fa-camera"></i> Upload Images</a>
+                </li>
+                ';
+            }
+            ?>
 
         </ul>
         <ul>
             <!--if a user is in session, display account name, otherwise show 'login'-->
             <li id="user-link">
-            <?php if(isset($user)){echo '<a href="account.php" class="sidebar-link"><i class="fas fa-user-alt"></i> ' . $user->username . '</a>';}else{echo '<a href="login.php" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Login/Register</a>';} ?>
+            <?php if(isset($user)){echo '<a href="account.php" class="sidebar-link"><i class="fas fa-user-alt"></i> ' . $user->getUsername() . '</a>';}else{echo '<a href="login.php" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Login/Register</a>';} ?>
             </li>
+            
         </ul>
     </div>
     
