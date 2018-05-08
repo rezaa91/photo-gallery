@@ -1,0 +1,28 @@
+/*
+import all folders in to styles.css
+in order to be accessible by HTML in one place
+*/
+
+
+/*default stylings*/
+@import "base/base.css";
+
+
+/*components*/
+@import "components/button.css";
+@import "components/input.css";
+
+
+/*layouts*/
+@import "layouts/containers.css";
+@import "layouts/page-layout.css";
+@import "layouts/sidebar.css";
+
+
+/*utilities*/
+@import "utilities/format.css";
+
+
+/*variables*/
+@import "variables/colors.css";
+@import "variables/typography.css";

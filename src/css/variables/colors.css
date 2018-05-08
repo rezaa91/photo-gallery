@@ -1,0 +1,42 @@
+/*
+colour palette:
+
+primary colors
+#226666
+#669999
+#407f7f
+#0d4d4d
+#003333
+
+#242,242,242 - neutral grey
+*/
+
+.neutral{
+    color:rgb(242,242,242);
+}
+.white{
+    color:rgb(251,253,255);
+}
+.dark{
+    color:rgb(31,31,31);
+}
+
+.primary{
+    color:#226666;
+}
+
+.secondary{
+    color:#669999;
+}
+
+.tertiary{
+    color:#407f7f;
+}
+
+.hint-color1{
+    color:#0d4d4d;
+}
+
+.hint-color2{
+    color:#003333;
+}
