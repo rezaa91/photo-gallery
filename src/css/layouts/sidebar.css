@@ -58,7 +58,8 @@ SIDE BAR styling
     color:black;
     border-top:1px solid #0d4d4d;
 }
-.bottom{
+
+#sidebar-nav{
     border-bottom:1px solid #0d4d4d;
 }
 
