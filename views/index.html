@@ -11,6 +11,18 @@
     <section class="top-spacing">
         <article>
             <h3 class="text-left sub-header tertiary">Recent Uploads</h3>
+            <!--include the top 3 recent uploads-->
+            <?php
+            while($row = $r->fetch()){
+                echo 
+                "<div class='recent-panel'>
+                    <h3 class='lead dark text-left'>{$row->getTitle()}</h3>
+                    <img class='recent-img' src='{$row->getFilePath()}' />
+                </div>
+                ";
+            }
+            ?>
+            
         </article>
     </section>
     

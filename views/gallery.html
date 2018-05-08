@@ -1,0 +1,19 @@
+<section class="offset page-layout">
+
+    <article>
+        <h1 class="header primary text-center">Gallery</h1>
+        <?php 
+        while($photos = $r->fetch()){
+            echo 
+            "<div class='panel'>
+                <h3 class='panel-title lead text-center lead'>{$photos->getTitle()}</h3>
+                <a class='panel-link' href='view.php?id={$photos->getPhotoId()}'><img class='panel-img' src='{$photos->getFilePath()}' /></a>
+            </div>
+            ";
+        } 
+        
+        ?>
+    
+    </article>
+
+</section>
