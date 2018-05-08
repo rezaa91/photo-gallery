@@ -27,7 +27,7 @@ try{
     include('includes/header.inc.php');
     include('views/error.html');
     include('includes/footer.inc.php');
-    exit;
+    exit();
     
 }
 
