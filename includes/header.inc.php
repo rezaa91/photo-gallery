@@ -22,9 +22,7 @@
 
         
         <!--stylesheets-->
-        <link rel="stylesheet" href="src/css/style.css" />
-        <?php if(isset($css)){echo $css;} ?>
-        
+        <link rel="stylesheet" href="src/css/styles.css" />        
         
         <!--scripts-->
         
@@ -35,7 +33,7 @@
     
     <body>
         <div id="page-wrapper">
-            <div id="sidebar-wrapper">
+            <div id="sidebar-wrapper" class="sidebar-container">
                 
                 <?php include('includes/navigation.inc.php'); ?>
                 
