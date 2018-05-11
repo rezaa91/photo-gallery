@@ -21,3 +21,13 @@ img{
     max-width:100%;
     height:auto;
 }
+
+label{
+    display:inline-block;
+    width:100px;
+    text-align:left;
+}
+
+input{
+    display:inline-block;
+}
