@@ -1,7 +1,10 @@
-<section class="offset page-layout">
+<section>
 
     <article>
-        <h1 class="header primary text-center">Gallery</h1>
+        <div class="full">
+            <h1 class="header primary text-center">Gallery</h1>
+        </div>
+        <div class="offset page-layout">
         <?php 
         while($photos = $r->fetch()){
             echo 
@@ -13,7 +16,7 @@
         } 
         
         ?>
-    
+        </div>
     </article>
 
 </section>
