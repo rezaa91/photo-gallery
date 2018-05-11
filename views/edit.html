@@ -1,0 +1,40 @@
+<section class="offset page-layout">
+
+    <article>
+        
+        <a class="btn btn-small bg-neutral primary" href='account.php'>Go Back</a>
+        
+        <form action="edit.php" method="post" class="top-spacing">
+            
+            <p>
+                <label>First Name: </label>
+                <input type="text" name="first_name" value="<?php if(isset($row)){ echo $row['first_name']; } ?>" />
+            </p>
+            
+            <p>
+                <label>Last Name: </label>
+                <input type="text" name="last_name" value="<?php if(isset($row)){ echo $row['last_name'];} ?>" />
+            </p>
+            
+            <p>
+                <label>Email: </label>
+                <input type="email" name="email" value="<?php if(isset($row)){ echo $row['email'];} ?>" />
+            </p>
+            
+            <p>
+                <label>Change Password: </label>
+                <input type="password" name="pass" />
+            </p>
+            
+            <p>
+                <label>Confirm New Password: </label>
+                <input type="password" name="confirm_pass" />
+            </p>
+            
+            <input type="submit" class="btn btn-small" name="submit" value="Confirm" />
+            
+        </form>
+        <p class="lead primary text-center"><?php if(isset($success)){echo $success;} ?></p>
+    </article>
+
+</section>
