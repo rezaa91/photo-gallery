@@ -1,0 +1,41 @@
+<section>
+
+    <article>
+        <h3 class="offset primary header text-center">Administrators Panel</h3>
+        
+        <!--flow the following div left-->
+        <div class="offset page-layout top-spacing bottom-spacing">
+            <h3 class="sub-header secondary">Administrators</h3>
+            <?php if(isset($r)){
+                while($row = $r->fetch()){
+                    echo "<h3 class='lead dark'>{$row['full_name']}";
+                    if($row['full_name'] == $user->getName()){
+                        echo " <a href='delete.php' class='btn btn-small bg-hint-color1 neutral'>Delete</a></h3>";
+                    }else{
+                        echo "</h3>";
+                    }
+                }
+            }?>
+        </div>
+        
+        <div class="page-layout offset bottom-spacing">
+            <form action="admin.php" method="POST">
+                <h3 class="secondary sub-header">Add Administrator</h3>
+                <input type="text" name="first_name" placeholder="first name" /><br />
+                <input type="text" name="last_name" placeholder="last name" /><br />
+                <input type="text" name="username" placeholder="username" /><br />
+                <input type="text" name="email" placeholder="email@domain.com" /><br />
+                <input type="password" name="pass" placeholder="password" /><br />
+                <input type="password" name="confirm_pass" placeholder="confirm password" /><br />
+                <input type="submit" class="btn btn-small" value="Register" />
+                
+                <?php
+                    if(isset($success)){echo $success;}
+                ?>
+                
+            </form>
+        </div>
+        
+    </article>
+
+</section>
