@@ -17,7 +17,7 @@
                 echo 
                 "<div class='recent-panel'>
                     <h3 class='lead dark text-left'>{$row->getTitle()}</h3>
-                    <img class='recent-img' src='{$row->getFilePath()}' />
+                    <a href='view.php?id={$row->getPhotoId()}'><img class='recent-img' src='{$row->getFilePath()}' /></a>
                 </div>
                 ";
             }
