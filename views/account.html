@@ -3,7 +3,23 @@
     <article>
     
         <div class="text-center">
-            <a href='logout.php' class='btn'>Logout</a>
+            
+            <h3 class="primary sub-header bottom-spacing">Details:</h3>
+            
+            <label>Name: </label>
+            <input type="name" value="<?php echo $user->getName(); ?>" readonly /><br />
+            
+            <label>Username: </label>
+            <input type="name" value="<?php echo $user->getUsername(); ?>" readOnly /><br />
+            
+            <label>Email: </label>
+            <input type="email" value="<?php echo $user->getEmail(); ?>" readonly /><br />
+            
+            <div class="top-spacing">
+                <a href='edit.php?id=<?php echo $user->getId(); ?>' class='btn btn-small bg-dark'>Edit</a>
+                <a href='logout.php' class='btn btn-small'>Logout</a>
+            </div>
+            
         </div>
         
     </article>
