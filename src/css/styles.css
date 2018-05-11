@@ -18,6 +18,7 @@ in order to be accessible by HTML in one place
 @import "layouts/page-layout.css";
 @import "layouts/sidebar.css";
 @import "layouts/gallery.css";
+@import "layouts/index.css";
 
 
 /*utilities*/
