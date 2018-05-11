@@ -16,9 +16,7 @@
         
         <!--fonts-->
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script" rel="stylesheet"> 
-        
-        <!--fontawesome-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/css/webfonts/fontawesome-all.css" /><!--font awesome-->
 
         
         <!--stylesheets-->
