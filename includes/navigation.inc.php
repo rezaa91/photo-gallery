@@ -34,7 +34,7 @@
                 echo 
                 '
                 <li>
-                    <a href="add_admin.php" class="sidebar-link"><i class="fas fa-users"></i> Add Administrators</a>
+                    <a href="admin.php" class="sidebar-link"><i class="fas fa-users"></i> Admin Panel</a>
                 </li>
                 <li>
                     <a href="upload.php" class="sidebar-link"><i class="fas fa-camera"></i> Upload Images</a>
