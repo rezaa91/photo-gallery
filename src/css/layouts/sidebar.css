@@ -68,6 +68,9 @@ SIDE BAR styling
     color:white;
     padding-left:20px;
 }
+.sidebar-link:active{
+    background-color:#0d3d3d;
+}
 
 #user-link{
     position:absolute;
