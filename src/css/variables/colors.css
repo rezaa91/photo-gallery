@@ -12,29 +12,60 @@ primary colors
 .neutral{
     color:rgb(242,242,242);
 }
+.bg-neutral{
+    background-color:rgb(242,242,242);
+}
+
 .white{
     color:rgb(251,253,255);
 }
+.bg-white{
+    background-color:rgb(251,253,255);
+}
+
 .dark{
     color:rgb(31,31,31);
 }
+.bg-dark{
+    background-color:rgb(31,31,31);
+}
+
 
 .primary{
     color:#226666;
 }
+.bg-primary{
+    background-color:#226666;
+}
+
 
 .secondary{
     color:#669999;
 }
+.bg-secondary{
+    background-color:#669999;
+}
+
 
 .tertiary{
     color:#407f7f;
 }
+.bg-tertiary{
+    background-color:#407f7f;
+}
+
 
 .hint-color1{
     color:#0d4d4d;
 }
+.bg-hint-color1{
+    background-color:#0d4d4d;
+}
+
 
 .hint-color2{
     color:#003333;
+}
+.bg-hint-color2{
+    background-color:#003333;
 }
