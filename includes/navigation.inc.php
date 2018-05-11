@@ -47,7 +47,7 @@
         <ul>
             <!--if a user is in session, display account name, otherwise show 'login'-->
             <li id="user-link">
-            <?php if(isset($user)){echo '<a href="account.php" class="sidebar-link"><i class="fas fa-user-alt"></i> ' . $user->getUsername() . '</a>';}else{echo '<a href="login.php" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Login/Register</a>';} ?>
+            <?php if(isset($user)){echo '<a href="account.php" class="sidebar-link"><i class="fas fa-user"></i> ' . $user->getUsername() . '</a>';}else{echo '<a href="login.php" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Login/Register</a>';} ?>
             </li>
             
         </ul>
