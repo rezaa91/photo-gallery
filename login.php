@@ -31,11 +31,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 exit();
                 
             }else{
-                throw new Exception('Your details are not recognised, please register.');
+                throw new Exception('Your details are not recognised, please register. <a href="login.php">go back</a>');
             }
             
         }else{
-            throw new Exception('Please fill the form in correctly');
+            throw new Exception('Please fill the form in correctly <a href="login.php">go back</a>');
         }
         
     }catch(Exception $e){
@@ -47,13 +47,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         exit(); 
     }
     
-    
-    
-    
-    
-    //check data against database
-    
-    //log user in or display errors
     
 }
 
