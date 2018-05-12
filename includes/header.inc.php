@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="src/css/styles.css" />        
         
         <!--scripts-->
+        <script src="src/js/app.js"></script><!--header specific stylesheet-->
         
         
     </head>
@@ -31,7 +32,7 @@
     
     <body>
         <div id="page-wrapper">
-            <div id="sidebar-wrapper" class="sidebar-container">
+            <div id="sidebar_wrapper" class="sidebar-container">
                 
                 <?php include('includes/navigation.inc.php'); ?>
                 
@@ -39,7 +40,7 @@
             
             
             <!--page content-->
-            <div id="content-wrapper">
+            <div id="content_wrapper">
                
                 
                 
