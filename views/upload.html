@@ -1,0 +1,29 @@
+<section>
+
+    <h1 class="offset header white text-center">Upload Image</h1>
+    
+    <article class="page-layout offset">
+        
+        <form action="upload.php" method="POST" class="text-center" enctype="multipart/form-data">
+            <p>
+                <input type="text" name="title" placeholder="Image Title" class="login-input" />
+            </p>
+            
+            <p>
+                <textarea name="description" class="login-input" placeholder="Image Description"></textarea>
+            </p>
+            
+            <p class="text-left">
+                <input type="file" name="file" id="file" class="file" />
+            </p>
+            
+            <input type="submit" name="submit" class="btn btn-small login-btn" value="Upload" />
+        </form>
+        
+        <?php
+        if(isset($success)){echo "<h3 class='lead primary text-center top-spacing'>$success</h3>";}
+        ?>
+        
+    </article>
+
+</section>

@@ -1,7 +1,7 @@
 <section>
 
     <article>
-        <h3 class="offset primary header text-center">Administrators Panel</h3>
+        <h3 class="offset white header text-center">Administrators Panel</h3>
         
         <!--flow the following div left-->
         <div class="offset page-layout top-spacing bottom-spacing">
@@ -21,13 +21,13 @@
         <div class="page-layout offset bottom-spacing">
             <form action="admin.php" method="POST">
                 <h3 class="secondary sub-header">Add Administrator</h3>
-                <input type="text" name="first_name" placeholder="first name" /><br />
-                <input type="text" name="last_name" placeholder="last name" /><br />
-                <input type="text" name="username" placeholder="username" /><br />
-                <input type="text" name="email" placeholder="email@domain.com" /><br />
-                <input type="password" name="pass" placeholder="password" /><br />
-                <input type="password" name="confirm_pass" placeholder="confirm password" /><br />
-                <input type="submit" class="btn btn-small" value="Register" />
+                <input type="text" name="first_name" placeholder="first name" class="login-input" /><br />
+                <input type="text" name="last_name" placeholder="last name" class="login-input" /><br />
+                <input type="text" name="username" placeholder="username" class="login-input" /><br />
+                <input type="text" name="email" placeholder="email@domain.com" class="login-input" /><br />
+                <input type="password" name="pass" placeholder="password" class="login-input" /><br />
+                <input type="password" name="confirm_pass" placeholder="confirm password" class="login-input" /><br />
+                <input type="submit" class="btn btn-small login-btn" value="Register" />
                 
                 <?php
                     if(isset($success)){echo $success;}

@@ -2,38 +2,28 @@
 
     <!--header-->
     <header class="full page-layout">
-        <h1 class="text-center header brand-font primary">AX PHOTOGRAPHY</h1>
+        <h1 class="text-center header brand-font white">AX PHOTOGRAPHY</h1>
+        <h3 class="text-center neutral sub-header">- Hull Photographer -</h3>
     </header>
 
     
     <!--recent pics-->
     <!--show the 6 most recent uploaded pictures-->
     <section class="top-spacing offset page-layout">
-        <article>
-            <h3 class="text-left sub-header tertiary">Recent Uploads</h3>
+        <article class="text-center">
+            <h3 class="text-center sub-header tertiary">Recent Uploads</h3>
             <!--include the top 3 recent uploads-->
             <?php
             while($row = $r->fetch()){
                 echo 
-                "<div class='recent-panel'>
-                    <h3 class='lead dark text-left'>{$row->getTitle()}</h3>
+                "<div class='recent-panel text-center'>
+                    <h3 class='lead dark'>{$row->getTitle()}</h3>
                     <a href='view.php?id={$row->getPhotoId()}'><img class='recent-img' src='{$row->getFilePath()}' /></a>
                 </div>
                 ";
             }
             ?>
             
-        </article>
-    </section>
-    
-    <!--show social media-->
-    <section class="top-spacing offset page-layout">
-        <article>
-            <h3 class="text-left sub-header tertiary">Social Media</h3>
-            <ul>
-                <li class="list-inline sub-header side-spacing"><a href="#" class="dark"><i class="fab fa-flickr"></i></a></li>
-                <li class="list-inline sub-header"><a href="#" class="dark"><i class="fab fa-instagram"></i></a></li>
-            </ul>
         </article>
     </section>
     

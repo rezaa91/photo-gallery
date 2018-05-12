@@ -1,0 +1,48 @@
+<section>
+
+    <article class="offset page-layout bottom-spacing bg-white">
+        <?php
+        if($id > 1){
+            $previous = $id - 1;
+            echo "<a style='float:left;' class='btn btn-small' href='view.php?id={$previous}'>Previous</a>";
+        }
+        if($id <= $count){
+            $next = $id+1;
+            echo "<a style='float:right;' class='btn btn-small' href='view.php?id={$next}'>Next</a>";
+        }
+        ?><!-- above - show a previous and next button in order to traverse between images -->
+        <h1 class="header primary text-center small-bottom-spacing"><?php echo $img['title']; ?></h1><!--display title of image-->
+        <img src="<?php echo $img['file_path']; ?>" /> <!-- display image -->
+        <p class="sub-header text-center tertiary small-bottom-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
+        
+        <!--comment box-->
+        <div class="comment-wrapper bg-neutral">
+            <?php
+            while( $comment = $stmt2->fetch() ){
+                echo "<div class='comment'><p><span class='comment-author primary'>{$comment['username']}: </span><span class='comment-text'>{$comment['comment']}</span></p>
+                <p class='comment-date text-right dark'>{$comment['date_posted']}</p>
+                </div>";
+            }
+        
+            ?><!--end of comments-->         
+        </div>
+        
+        <div>
+            <!--show form to comment if current user is logged in-->
+            <?php
+            
+            if(isset($user) ){
+                echo "<form action='view.php?id={$id}' method='post' class='small-top-spacing' >
+                    <textarea placeholder='comment' name='comment' class='comment-input'></textarea><br />
+                    <div class='text-right'>
+                        <input type='submit' class='btn btn-small comment-post' value='post' />
+                    </div>
+                </form>";
+            }
+
+            ?>
+        </div>
+        
+    </article>
+
+</section>

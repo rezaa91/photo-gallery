@@ -1,17 +1,20 @@
 <section class="offset">
-    <h1 class="header primary text-center">Welcome</h1>
+    <article>
+        <h1 class="header white text-center">Welcome Back</h1>
+    </article>
 </section>
 
-<section id="login" class="offset page-layout">
+
+<section id="login" class="offset page-layout bottom-spacing">
 
     <article>
-    
+        
+        <h2 class="primary sub-header text-center small-bottom-spacing">Login</h2>
+        
         <form action="login.php" method="POST">
-            
-            <h2 class="tertiary sub-header">Login</h2>
-            <input type="text" name="email" placeholder="email@domain.com" /><br />
-            <input type="password" name="pass" placeholder="password" /><br />
-            <input type="submit" class="btn btn-small" value="Login" />
+            <input type="text" name="email" placeholder="email@domain.com" class="login-input" /><br />
+            <input type="password" name="pass" placeholder="password" class="login-input" /><br />
+            <input type="submit" class="btn btn-small login-btn" value="Login" />
         
         </form>
     
@@ -22,21 +25,20 @@
 </section>
 
 
-<section id="register" class="offset page-layout bottom-spacing">
+<section id="register" class="offset page-layout bg-primary bottom-spacing">
 
     <article>
     
-    
-        <form action="register.php" method="POST">
-            
-            <h2 class="tertiary sub-header">Register</h2>
-            <input type="text" name="first_name" placeholder="first name" /><br />
-            <input type="text" name="last_name" placeholder="last name" /><br />
-            <input type="text" name="username" placeholder="username" /><br />
-            <input type="text" name="email" placeholder="email@domain.com" /><br />
-            <input type="password" name="pass" placeholder="password" /><br />
-            <input type="password" name="confirm_pass" placeholder="confirm password" /><br />
-            <input type="submit" class="btn btn-small" value="Register" />
+        <h2 class="neutral sub-header text-center">Or Register...</h2>
+        
+        <form action="register.php" method="POST" class="register small-top-spacing">
+            <input type="text" name="first_name" placeholder="first name" class="login-input" /><br />
+            <input type="text" name="last_name" placeholder="last name" class="login-input" /><br />
+            <input type="text" name="username" placeholder="username" class="login-input" /><br />
+            <input type="text" name="email" placeholder="email@domain.com" class="login-input" /><br />
+            <input type="password" name="pass" placeholder="password" class="login-input" /><br />
+            <input type="password" name="confirm_pass" placeholder="confirm password" class="login-input" /><br />
+            <input type="submit" class="btn btn-small login-btn bg-dark neutral" value="Register" />
         
         </form>
     

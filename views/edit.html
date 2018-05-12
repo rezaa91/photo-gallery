@@ -2,9 +2,11 @@
 
     <article>
         
-        <a class="btn btn-small bg-neutral primary" href='account.php'>Go Back</a>
+        <a class="btn btn-small bg-dark white" href='account.php'>Go Back</a>
         
-        <form action="edit.php" method="post" class="top-spacing">
+        <h2 class="primary header small-top-spacing">Edit Details</h2>
+        
+        <form action="edit.php" method="post" class="small-top-spacing">
             
             <p>
                 <label>First Name: </label>
@@ -34,7 +36,7 @@
             <input type="submit" class="btn btn-small" name="submit" value="Confirm" />
             
         </form>
-        <a href="delete.php" class="btn btn-small bg-neutral primary">Delete</a>
+        <a href="delete.php" class="btn btn-small bg-dark white">Delete Account</a>
         <p class="lead primary text-center"><?php if(isset($success)){echo $success;} ?></p>
     </article>
 
