@@ -9,7 +9,33 @@ if(isset($user) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){
         //delete user from database
         if($user->isAdmin()){
             //check if last administrator before allowing to delete account
+            $q = "SELECT id FROM users WHERE member_type=1";
+            $r = $pdo->query($q);
             
+            if($r && $r->rowCount()>1){ //if user is not the last administrator, then delete account
+                $q = "DELETE FROM users WHERE id=:id";
+                $stmt = $pdo->prepare($q);
+                $r = $stmt->execute(array(':id'=>$user->getId()));
+                
+                if($r){
+                    $user = null;
+                    $_SESSION = array();
+                    setcookie('PHPSESSID');
+                    session_destroy();
+                    
+                    $page_title = "Deleted";
+                    include('includes/header.inc.php');
+                    include('views/deleted.html');
+                    include('includes/footer.inc.php');
+                    
+                }else{ //throw error if query executed unsuccessfully
+                    throw new Exception('Sorry, something went wrong. Please try again.');
+                }
+                
+            }else{
+                throw new Exception('There must be at least 1 administrator');
+            }
+        
             
 
         }else{
