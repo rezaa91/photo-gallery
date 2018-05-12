@@ -3,12 +3,12 @@
 
 <nav id="sidebar">
     
-    <div class="sidebar-left">
-        <a href="#" class="sidebar-left-icon"><i class="fas fa-bars"></i></a>
+    <div id="sidebar_left" class="sidebar-left">
+        <a class="sidebar-left-icon" id="hide_menu"><i class="fas fa-bars"></i></a>
     </div>
     
     
-    <div class="sidebar-right">
+    <div id="sidebar_right" class="sidebar-right">
         <div class="nav-title"><a href="index.php" class="brand-font">AX PHOTOGRAPHY</a></div>
         <ul id="sidebar-nav">
 
