@@ -3,19 +3,19 @@ button styling
 */
 
 .btn{
-    box-shadow: 2px 0px 2px 1px rgb(31,31,31);
     padding:12px 20px;
     border-radius:10px;
     text-decoration:none;
     background-color:#226666;
-    color:rgb(251,253,255);
+    color:rgb(241,241,241);
     font-weight:bold;
     font-style:italic;
     font-size:20px;
 }
 
 .btn:hover{
-    box-shadow:0px 0px 0px;
+    opacity:0.9;
+    cursor:pointer;
 }
 
 .btn:active{
