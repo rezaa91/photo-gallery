@@ -62,7 +62,7 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
                     $stmt = $pdo->prepare($q);
                     $r = $stmt->execute(array(':pass' => $pass));
 
-                    if($r){ //if query executed successfully, display success message to user
+                    if($r){ //if query executed successfully, display success message to user                        
                         $success = "Password changed successfully";
 
                     }else{ //if problem with query
@@ -75,12 +75,26 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
             
             //update first name, last name and email as long as fields arent empty
             if(!empty($first_name) && !empty($last_name) && !empty($email)){
+                
                 //update database with new information
-                $q = "UPDATE users SET first_name=:first_name, last_name=:last_name, email=:email WHERE username='{$user->getUsername()}'";
+                $q = "UPDATE users SET first_name=:first_name, last_name=:last_name, email=:email WHERE username=:username";
                 $stmt = $pdo->prepare($q);
-                $r = $stmt->execute(array(':first_name' => $first_name, ':last_name'=>$last_name, ':email'=>$email));
-                if($r){ //if query executed successfully, inform user that data has changed
-                    $success .= "<br />Your information has been updated.";
+                $r2 = $stmt->execute(array(':first_name' => $first_name, ':last_name'=>$last_name, ':email'=>$email, ':username'=>$user->getUsername()));
+                
+                if($r2){ //if query executed successfully, inform user that data has changed
+                    
+                    $success .= "<br />Your information has been updated."; //this message is displayed in browser
+                    
+                    //get updated information in order to display changes immediately to the user
+                    $q = "SELECT * FROM users WHERE username=:username";
+                    $stmt = $pdo->prepare($q);
+                    $r = $stmt->execute(array(':username'=>$user->getUsername()));
+                    
+                    $stmt->setFetchMode(PDO::FETCH_CLASS,'Users'); //set fetch mode to Users class
+                    $user = $stmt->fetch(); 
+                    
+                    $_SESSION['user'] = $user; //update the session with the updated user information for immediate effect
+                    
                 }else{
                     throw new Exception('Sorry, something went wrong. Please try again.');
                 }
