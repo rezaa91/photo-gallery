@@ -1,9 +1,9 @@
 <div id="index-wrapper">
 
     <!--header-->
-    <header class="full page-layout">
-        <h1 class="text-center header brand-font white">AX PHOTOGRAPHY</h1>
-        <h3 class="text-center neutral sub-header">- Hull Photographer -</h3>
+    <header class="full">
+        <h1 class="text-center white header-font">AX PHOTOGRAPHY</h1>
+        <h3 class="text-center neutral sub-header header-font italic">- Hull Photographer -</h3>
     </header>
 
     
@@ -11,13 +11,13 @@
     <!--show the 6 most recent uploaded pictures-->
     <section class="top-spacing offset page-layout">
         <article class="text-center">
-            <h3 class="text-center sub-header tertiary">Recent Uploads</h3>
+            <h3 class="text-center sub-header tertiary header-font">Recent Uploads</h3>
             <!--include the top 3 recent uploads-->
             <?php
             while($row = $r->fetch()){
                 echo 
                 "<div class='recent-panel text-center'>
-                    <h3 class='lead dark'>{$row->getTitle()}</h3>
+                    <h3 class='lead dark brand-font recent-title'>{$row->getTitle()}</h3>
                     <a href='view.php?id={$row->getPhotoId()}'><img class='recent-img' src='{$row->getFilePath()}' /></a>
                 </div>
                 ";

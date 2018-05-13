@@ -6,14 +6,14 @@
             $previous = $id - 1;
             echo "<a style='float:left;' class='btn btn-small' href='view.php?id={$previous}'>Previous</a>";
         }
-        if($id <= $count){
+        if($id < $count){
             $next = $id+1;
             echo "<a style='float:right;' class='btn btn-small' href='view.php?id={$next}'>Next</a>";
         }
         ?><!-- above - show a previous and next button in order to traverse between images -->
-        <h1 class="header primary text-center small-bottom-spacing"><?php echo $img['title']; ?></h1><!--display title of image-->
+        <h1 class="header primary text-center small-bottom-spacing brand-font" style="clear:both;"><?php echo strtoupper($img['title']); ?></h1><!--display title of image-->
         <img src="<?php echo $img['file_path']; ?>" /> <!-- display image -->
-        <p class="sub-header text-center tertiary small-bottom-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
+        <p class="lead text-center tertiary small-bottom-spacing small-top-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
         
         <!--comment box-->
         <div class="comment-wrapper bg-neutral">
@@ -38,6 +38,8 @@
                         <input type='submit' class='btn btn-small comment-post' value='post' />
                     </div>
                 </form>";
+            }else{
+                echo "<p class='dark'><a href='login.php'>Login</a> to comment.</p>";
             }
 
             ?>

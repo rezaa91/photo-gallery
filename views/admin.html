@@ -1,11 +1,11 @@
 <section>
 
     <article>
-        <h3 class="offset white header text-center">Administrators Panel</h3>
+        <h3 class="offset white header text-center header-font">ADMINISTRATORS PANEL</h3>
         
         <!--flow the following div left-->
         <div class="offset page-layout top-spacing bottom-spacing">
-            <h3 class="sub-header secondary">Administrators</h3>
+            <h3 class="sub-header secondary header-font">Administrators</h3>
             <?php if(isset($r)){
                 while($row = $r->fetch()){
                     echo "<h3 class='lead dark'>{$row['full_name']}";
@@ -20,7 +20,7 @@
         
         <div class="page-layout offset bottom-spacing">
             <form action="admin.php" method="POST">
-                <h3 class="secondary sub-header">Add Administrator</h3>
+                <h3 class="secondary sub-header header-font">Add Administrator</h3>
                 <input type="text" name="first_name" placeholder="first name" class="login-input" /><br />
                 <input type="text" name="last_name" placeholder="last name" class="login-input" /><br />
                 <input type="text" name="username" placeholder="username" class="login-input" /><br />

@@ -2,20 +2,54 @@
 
     <article class="bottom-spacing">
         <div class="full">
-            <h1 class="header white text-center">Gallery</h1>
+            <h1 class="header white text-center header-font">GALLERY</h1>
         </div>
         <div class="offset page-layout">
+            
+        <!-- display the title and image of each picture in an individual panel -->
         <?php 
         while($photos = $r->fetch()){
             echo 
             "<div class='panel text-center'>
-                <h3 class='panel-title lead text-center lead'>{$photos->getTitle()}</h3>
+                <h3 class='panel-title lead text-center lead brand-font'>{$photos->getTitle()}</h3>
                 <a class='panel-link' href='view.php?id={$photos->getPhotoId()}'><img class='panel-img' src='{$photos->getFilePath()}' /></a>
             </div>
             ";
-        } 
-        
+        }
         ?>
+            
+        <!-- create pagination of results 
+        each page to display 18 pics at max - this is specified in gallery.php
+        if more than 1 page, then show a next and previous button, along with each page number.
+        if the page the user is on is the last, do not show a 'next' button
+        -->
+        <?php     
+        if($pages > 1) {
+                
+            echo '<br /><p class="text-center small-top-spacing">';
+                
+            $current_page = ($start/$display) + 1;
+            if($current_page != 1){
+                echo '<a class="pagination" href="gallery.php?start=' . ($start - $display) . '&page=' . $pages . '">Previous </a>';
+            }
+            
+            for($i = 1; $i <= $pages; $i++) {
+                if($i != $current_page) {
+                    echo '<a class="pagination" href="gallery.php?start=' . (($display * ($i - 1))) . '&page=' . $pages . '"> ' . $i . ' </a>';
+                }else{
+                    echo $i . ' ';        
+                }
+            }
+            
+            if($current_page != $pages) {
+                echo '<a class="pagination" href="gallery.php?start=' . ($start + $display) . '&page=' . $pages . '"> Next</a>';
+            }
+
+            echo '</p>';
+        }
+    
+        ?>
+        
         </div>
     </article>
 
