@@ -10,7 +10,7 @@
     font-size:26px;
 }
 
-.lead-text{
+.lead{
     font-size:24px;
 }
 
@@ -20,4 +20,30 @@
 
 .brand-font{
     font-family: 'Kaushan Script', cursive;
+}
+
+.header-font{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.pagination{
+    color:rgb(31,31,31);
+    font-weight:bold;
+}
+
+
+@media only screen and (max-width: 576px){
+    .header{
+        font-size:28px;
+    }
+    .sub-header{
+        font-size:22px;
+    }
+    .lead{
+        font-size:20px;
+    }
 }

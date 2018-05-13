@@ -8,10 +8,6 @@
     margin-bottom:5px;    
 }
 
-.panel-link{
-    
-}
-
 .panel-img{
     width:300px;
     height:220px;
@@ -20,4 +16,24 @@
 
 .panel-img:hover{
     opacity:0.9;
+}
+
+
+/*make gallery responsive*/
+@media only screen and (max-width: 768px){
+    .panel{
+        display:inline-block;
+        width:45%;
+    }
+    .panel-img{
+        width:200px;
+        height:inherit;
+    }
+}
+
+
+@media only screen and (max-width:576px){
+    .panel-title{
+        display:none;
+    }
 }

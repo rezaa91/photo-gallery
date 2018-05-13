@@ -82,3 +82,35 @@
     font-style:italic;
 }
 
+
+
+
+
+/*make containers responsive*/
+
+@media only screen and (max-width: 768px){
+    .offset{
+        padding:10px;
+        width:98%;
+    }
+}
+
+
+@media only screen and (max-width:576px){
+    .recent-panel{
+        width:100%;
+        margin: 10px auto;
+    }
+    .recent-title{
+        display:none;
+    }
+    .recent-img{
+        width:100%;
+        height:inherit;
+    }
+    .comment-wrapper{
+        height:200px;
+    }
+}
+
+

@@ -30,4 +30,9 @@ label{
 
 input{
     display:inline-block;
+    z-index:2;
+}
+
+a{
+    text-decoration:none;
 }

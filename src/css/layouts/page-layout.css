@@ -2,6 +2,14 @@
 PAGE CONTENT
 */
 #content_wrapper{
-    float:right;
+    float:left;
     width:100%;
+    z-index:1;
+}
+
+@media only screen and (max-width:768px){
+    #content_wrapper{
+        width:100%;
+        margin-top:50px;
+    }
 }

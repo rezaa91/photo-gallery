@@ -1,8 +1,32 @@
 #index-wrapper header{
-    background-image:url('../../img/img-3.jpg');
+    background-image:url('../../img/img-5.jpg');
     background-attachment: fixed;
     background-size:cover;
     padding-top:150px;
     padding-bottom:150px;
     background-position:bottom;
 }
+
+#index-wrapper header h1{
+    font-size:60px;
+}
+
+
+
+/*make responsive*/
+
+@media only screen and (max-width: 768px){
+    #index-wrapper header h1{
+        font-size:40px;
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #index-wrapper header h1{
+        font-size:32px;
+    }
+    #index-wrapper header h3{
+        font-size:20px;
+    }
+}
+
