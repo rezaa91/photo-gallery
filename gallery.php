@@ -4,7 +4,47 @@ require('core/init.php');
 
 try{
     
-    $q = 'SELECT * FROM photos ORDER BY upload_date DESC'; //get newest pic first
+    //paginate query results
+    $display = 18; // results to show per page
+    
+    //determine how many pages there have been
+    if(isset($_GET['page']) && is_numeric($_GET['page'])){
+        $pages = $_GET['page'];
+    }else{ //count the number of records
+        $q = "SELECT COUNT(photo_id) FROM photos";
+        $r = $pdo->query($q);
+        $r->setFetchMode(PDO::FETCH_BOTH);
+        $records = $r->fetch(); 
+        $records = $records[0]; //number of photos in database
+        
+        //calculate number of pages
+        if($records > $display){//more than 1 page
+            $pages = ceil($records/$display);
+        }else{
+            $pages = 1;
+        }
+    }
+    
+    //determine where in the database to start running results
+    if(isset($_GET['start']) && is_numeric($_GET['start'])){
+        $start = $_GET['start'];
+    }else{
+        $start = 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    $q = "SELECT * FROM photos ORDER BY upload_date DESC LIMIT $start, $display" ; //get newest pic first
     $r = $pdo->query($q);
     
     if($r){//if query executed successfully
