@@ -15,7 +15,7 @@
         <title><?php if(isset($page_title)){echo $page_title;} ?></title><!--page title-->
         
         <!--fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script|Abril+Fatface" rel="stylesheet"> 
         <link rel="stylesheet" href="src/css/webfonts/fontawesome-all.css" /><!--font awesome-->
 
         
