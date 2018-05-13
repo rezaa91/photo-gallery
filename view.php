@@ -27,6 +27,12 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
             $img = $stmt->fetch();
             
             
+            //throw exception if false id passed in to url
+            if(!$img){
+                throw new Exception('Oops, this page does not exist. <a href="gallery.php">Go back</a>');
+            }
+            
+            
             
             //display page - with the functionality of users being able to comment
             $q = "SELECT u.id, u.username AS username, p.user_id, p.pic_comment AS comment, p.date_posted AS date_posted, ph.photo_id AS photo_id FROM users AS u INNER JOIN posts AS p ON u.id = p.user_id INNER JOIN photos AS ph ON ph.photo_id = p.photo_id WHERE ph.photo_id = :photo_id ORDER BY p.date_posted"; //this query selects the user who posted the comment, including the comment in order to display on page
