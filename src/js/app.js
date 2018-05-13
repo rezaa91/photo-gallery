@@ -8,6 +8,7 @@ window.addEventListener('load', function() {
     let hide_menu_btn = document.getElementById('hide_menu'); //button which will be used to toggle menu when clicked
     
     
+    sidebar_right.style.display = 'none'; //hide sidebar right at startup
     //toggle menu when btn pressed
     hide_menu_btn.addEventListener('click', function() {
         if(sidebar_right.style.display !== 'none'){
