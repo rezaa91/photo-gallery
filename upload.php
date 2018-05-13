@@ -4,9 +4,8 @@ require('core/init.php');
 
 if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){ 
     
-    //display header and content
+    //display header
     include('includes/header.inc.php');
-    include('views/upload.html');
     
     //if form submitted - then add picture to database
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -29,9 +28,9 @@ if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['
                     if(!empty($name)){
                         $location = 'uploads/'; //directory
                         if(move_uploaded_file($temp_name, $location.$name)){ //move file to uploads directory
-                            $success = "File uploaded successfully";
+                            $success = "File uploaded successfully, <a href='gallery.php'>view in gallery</a>";
                         }else{
-                            throw new Exception('Sorry, something went wrong. Please try again.');
+                            throw new Exception('Files must be smaller than 2MB.');
                         }
                     }else{
                         throw new Exception('Sorry, something went wrong. Please try again.');
@@ -67,7 +66,8 @@ if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['
 
     }
     
-    //display footer
+    //display footer and content
+    include('views/upload.html');
     include('includes/footer.inc.php');
     
     
