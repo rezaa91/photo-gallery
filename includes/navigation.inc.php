@@ -9,7 +9,7 @@
     
     
     <div id="sidebar_right" class="sidebar-right">
-        <div class="nav-title"><a href="index.php" class="brand-font">AX PHOTOGRAPHY</a></div>
+        <div class="nav-title"><a href="index.php" class="header-font">AX PHOTOGRAPHY</a></div>
         <ul id="sidebar-nav">
 
             <li>
@@ -17,15 +17,7 @@
             </li>
 
             <li>
-                <a href="about.php" class="sidebar-link"><i class="fas fa-book"></i> About</a>
-            </li>
-
-            <li>
                 <a href="gallery.php" class="sidebar-link"><i class="fas fa-images"></i> Gallery</a>
-            </li>
-
-            <li>
-                <a class="sidebar-link" href="contact.php"><i class="fas fa-phone"></i> Contact</a>
             </li>
             
             <?php
