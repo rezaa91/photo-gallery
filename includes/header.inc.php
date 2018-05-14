@@ -25,6 +25,27 @@
         <!--scripts-->
         <script src="src/js/app.js"></script>
         
+        <!--cookie popup-->
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+        <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#1d8a8a"
+            },
+            "button": {
+              "background": "transparent",
+              "text": "#62ffaa",
+              "border": "#62ffaa"
+            }
+          },
+          "position": "bottom-right"
+        })});
+        </script>
+        
+        
         
     </head>
     
