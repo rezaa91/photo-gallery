@@ -33,7 +33,7 @@ if(isset($user) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){
                 }
                 
             }else{
-                throw new Exception('There must be at least 1 administrator');
+                throw new Exception('There must be at least 1 administrator.');
             }
         
             
