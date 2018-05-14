@@ -35,6 +35,7 @@ SIDE BAR styling
 }
 .sidebar-left-icon:hover{
     color:white;
+    cursor:pointer;
 }
 
 .nav-title{

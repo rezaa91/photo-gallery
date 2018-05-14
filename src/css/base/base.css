@@ -10,6 +10,7 @@ CSS resets
 
 body{
     background-color:rgb(31,31,31);
+    word-wrap: break-word;
 }
 
 

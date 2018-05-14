@@ -18,6 +18,11 @@
     opacity:0.9;
 }
 
+/*view page*/
+.view-image-wrapper{
+    text-align:center;
+}
+
 
 /*make gallery responsive*/
 @media only screen and (max-width: 768px){
