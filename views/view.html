@@ -11,9 +11,12 @@
             echo "<a style='float:right;' class='btn btn-small' href='view.php?id={$next}'>Next</a>";
         }
         ?><!-- above - show a previous and next button in order to traverse between images -->
-        <h1 class="header primary text-center small-bottom-spacing brand-font" style="clear:both;"><?php echo strtoupper($img['title']); ?></h1><!--display title of image-->
-        <img src="<?php echo $img['file_path']; ?>" /> <!-- display image -->
-        <p class="lead text-center tertiary small-bottom-spacing small-top-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
+        
+        <div class="view-image-wrapper">
+            <h1 class="header primary text-center small-bottom-spacing brand-font" style="clear:both;"><?php echo strtoupper($img['title']); ?></h1><!--display title of image-->
+            <img src="<?php echo $img['file_path']; ?>" /> <!-- display image -->
+            <p class="lead text-center tertiary small-bottom-spacing small-top-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
+        </div>
         
         <!--comment box-->
         <div class="comment-wrapper bg-neutral">
@@ -33,9 +36,9 @@
             
             if(isset($user) ){
                 echo "<form action='view.php?id={$id}' method='post' class='small-top-spacing' >
-                    <textarea placeholder='comment' name='comment' class='comment-input'></textarea><br />
+                    <textarea placeholder='comment' name='comment' class='comment-input' id='comment' maxLength='300'></textarea><br />
                     <div class='text-right'>
-                        <input type='submit' class='btn btn-small comment-post' value='post' />
+                        <input type='submit' class='btn btn-small comment-post' value='post' id='submit' />
                     </div>
                 </form>";
             }else{
@@ -47,4 +50,7 @@
         
     </article>
 
+    
+    <script>view();</script>
+    
 </section>

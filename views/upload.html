@@ -4,26 +4,30 @@
     
     <article class="page-layout offset">
         
-        <form action="upload.php" method="POST" class="text-center small-top-spacing" enctype="multipart/form-data">
+        <form action="upload.php" method="POST" class="text-center small-top-spacing" enctype="multipart/form-data" id="upload_form">
             <p>
-                <input type="text" name="title" placeholder="Image Title" class="login-input" />
+                <input type="text" name="title" placeholder="Image Title" class="login-input" maxlength="18" />
             </p>
             
             <p>
-                <textarea name="description" class="login-input" placeholder="Image Description"></textarea>
+                <textarea name="description" class="login-input" placeholder="Image Description" maxlength="200"></textarea>
             </p>
             
             <p class="text-left">
-                <input type="file" name="file" id="file" class="file" />
+                <input type="file" name="file" id="file" class="file"/>
             </p>
             
-            <input type="submit" name="submit" class="btn btn-small login-btn" value="Upload" />
+            <input type="submit" name="submit" class="btn btn-small login-btn" value="Upload" id="upload" />
         </form>
         
         <?php
         if(isset($success)){echo "<h3 class='lead primary text-center top-spacing'>$success</h3>";}
         ?>
         
+        <p class="text-center dark" id="file_message"></p>
+        <script>file_upload();</script>
+        
     </article>
-
+    
+    
 </section>

@@ -6,7 +6,7 @@
         
         <h2 class="primary header small-top-spacing header-font">Edit Details</h2>
         
-        <form action="edit.php" method="post" class="small-top-spacing">
+        <form action="edit.php" method="post" class="small-top-spacing" id="edit_form">
             
             <p>
                 <label>First Name: </label>
@@ -33,11 +33,14 @@
                 <input type="password" name="confirm_pass" />
             </p>
             
-            <input type="submit" class="btn btn-small" name="submit" value="Confirm" />
+            <input type="submit" class="btn btn-small" name="submit" value="Confirm" id="confirm" />
             
         </form>
-        <a href="delete.php" class="btn btn-small bg-dark white">Delete Account</a>
+        <a href="delete.php" class="btn btn-small bg-dark white" id="delete">Delete Account</a>
         <p class="lead primary text-center"><?php if(isset($success)){echo $success;} ?></p>
     </article>
+    
+    <!--page specific javascript -->
+    <script>edit_details();</script>
 
 </section>

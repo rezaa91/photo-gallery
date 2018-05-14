@@ -17,11 +17,13 @@
             
             <div class="top-spacing">
                 <a href='edit.php?id=<?php echo $user->getId(); ?>' class='btn btn-small bg-dark'>Edit</a>
-                <a href='logout.php' class='btn btn-small'>Logout</a>
+                <a href='logout.php' class='btn btn-small' id='logout'>Logout</a>
             </div>
             
         </div>
         
     </article>
 
+    <script>account();</script>
+    
 </section>
