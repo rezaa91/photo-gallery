@@ -22,9 +22,17 @@ if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['
                 
                 //upload image and insert data in to database
                 $name = $_FILES['file']['name']; //get file name from user side
-                $temp_name = $_FILES['file']['tmp_name']; //get temp name from serveer
+                $temp_name = $_FILES['file']['tmp_name']; //get temp name from server
+                $file_type = $_FILES['file']['type']; //get mimetype of uploaded file
+                $allowed_types = ['image/jpeg','image/gif', 'image/png']; //only extensions allowed
 
                 if(isset($name)){
+                    
+                    //if file type is not an image file (e.g. jpg), alert user and throw exception
+                    if(!in_array($file_type, $allowed_types)){
+                        throw new Exception('Please upload image files only');
+                    }
+                    
                     if(!empty($name)){
                         $location = 'uploads/'; //directory
                         if(move_uploaded_file($temp_name, $location.$name)){ //move file to uploads directory
