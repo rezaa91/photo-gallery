@@ -5,6 +5,10 @@ require('core/init.php');
 
 if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
     
+    //set page title and insert header
+    $page_title = "Add Administrator";
+    include('includes/header.inc.php');
+    
     //get all administators
     try{
         $q = "SELECT CONCAT(first_name, ' ',last_name) AS full_name FROM users WHERE member_type=1";
@@ -73,17 +77,13 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
             
         }catch(Exception $e){ //display errors if any
             $page_title = "Error";
-            include('includes/header.inc.php');
             include('views/error.html');
-            include('includes/footer.inc.php');
         }
         
     }//end of form handle IF
     
     
-    //display page/form
-    $page_title = "Add Administrator";
-    include('includes/header.inc.php');
+    //display page content and footer    
     include('views/admin.html');
     include('includes/footer.inc.php');
     

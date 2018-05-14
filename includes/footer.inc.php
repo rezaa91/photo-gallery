@@ -1,4 +1,4 @@
-                <footer>
+                <footer class="top-spacing">
                     <div id="left-footer">
                         <!--description-->
                         
@@ -14,7 +14,8 @@
             </div><!--end of content wrapper-->
         </div><!--end of page wrapper-->
         
-        
+        <!-- call JS function specific to header, footer adnd navigation -->
+        <script>header_footer();</script>
     </body>
     
     

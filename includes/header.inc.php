@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="src/css/styles.css" />        
         
         <!--scripts-->
-        <script src="src/js/app.js"></script><!--header specific stylesheet-->
+        <script src="src/js/app.js"></script>
         
         
     </head>
