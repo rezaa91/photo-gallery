@@ -19,6 +19,9 @@
     #index-wrapper header h1{
         font-size:40px;
     }
+    #index-wrapper header{
+        background-image:url('../../img/tablets.jpg');
+    }
 }
 
 @media only screen and (max-width: 576px){
@@ -27,6 +30,12 @@
     }
     #index-wrapper header h3{
         font-size:20px;
+    }
+    #index-wrapper header{
+        background-image:url('../../img/mobile.jpg');
+        padding-top:220px;
+        padding-bottom:220px;
+        background-position:center;
     }
 }
 

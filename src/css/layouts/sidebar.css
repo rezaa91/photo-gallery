@@ -5,6 +5,7 @@ SIDE BAR styling
     float:left;
     height:100vh;
     position:fixed;
+    z-index:99;
 }
 
 
