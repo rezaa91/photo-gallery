@@ -20,7 +20,7 @@ if(isset($_SESSION['user']) && (isset($_SESSION['agent']) && $_SESSION['agent'] 
 //connect to database
 try{
     
-    $pdo = new PDO('mysql:dbname=gallery; host=localhost', 'root','');
+    $pdo = new PDO('mysql:dbname=gallery; host=127.0.0.1', 'root','Issaee50!');
     
 }catch(PDOException $e){ //if error connecting to database, inform user
     $page_title = 'Error!';
