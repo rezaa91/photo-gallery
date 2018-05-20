@@ -10,7 +10,7 @@
                 while($row = $r->fetch()){
                     echo "<h3 class='lead dark'>{$row['full_name']}";
                     if($row['full_name'] == $user->getName()){
-                        echo " <a id='delete' href='delete.php' class='btn btn-small bg-hint-color1 neutral'>Delete</a></h3>";
+                        echo " <a id='delete' href='delete.php' class='btn btn-small bg-hint-color1 neutral' title='delete your account'>Delete</a></h3>";
                     }else{
                         echo "</h3>";
                     }
@@ -27,7 +27,7 @@
                 <input type="text" name="email" placeholder="email@domain.com" class="login-input" /><br />
                 <input type="password" name="pass" placeholder="password" class="login-input" /><br />
                 <input type="password" name="confirm_pass" placeholder="confirm password" class="login-input" /><br />
-                <input type="submit" class="btn btn-small login-btn" value="Register" />
+                <input type="submit" class="btn btn-small login-btn" value="Register" title='register a new administrator' />
                 
                 <?php
                     if(isset($success)){echo $success;}

@@ -6,18 +6,18 @@
         
         <form action="upload.php" method="POST" class="text-center small-top-spacing" enctype="multipart/form-data" id="upload_form">
             <p>
-                <input type="text" name="title" placeholder="Image Title" class="login-input" maxlength="18" />
+                <input type="text" name="title" placeholder="Image Title" class="login-input" maxlength="18" title="enter a title for your image" />
             </p>
             
             <p>
-                <textarea name="description" class="login-input" placeholder="Image Description" maxlength="200"></textarea>
+                <textarea name="description" class="login-input" placeholder="Image Description" maxlength="200" title="enter a brief description about the uploaded image"></textarea>
             </p>
             
             <p class="text-left">
-                <input type="file" name="file" id="file" class="file"/>
+                <input type="file" name="file" id="file" class="file" title="Select a file from your device"/>
             </p>
             
-            <input type="submit" name="submit" class="btn btn-small login-btn" value="Upload" id="upload" />
+            <input type="submit" name="submit" class="btn btn-small login-btn" value="Upload" id="upload" title="upload your image" />
         </form>
         
         <?php

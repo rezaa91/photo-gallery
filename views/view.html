@@ -4,27 +4,79 @@
         <?php
         if($id > 1){
             $previous = $id - 1;
-            echo "<a style='float:left;' class='btn btn-small' href='view.php?id={$previous}'>Previous</a>";
+            echo "<a style='float:left;' class='navigate' href='view.php?id={$previous}' id='previous_page' title='show previous image'><i class='fas fa-chevron-left'></i></a>";
         }
         if($id < $count){
             $next = $id+1;
-            echo "<a style='float:right;' class='btn btn-small' href='view.php?id={$next}'>Next</a>";
+            echo "<a style='float:right;' class='navigate' href='view.php?id={$next}' id='next_page' title='show next image'><i class='fas fa-chevron-right'></i></a>";
         }
         ?><!-- above - show a previous and next button in order to traverse between images -->
         
         <div class="view-image-wrapper">
-            <h1 class="header primary text-center small-bottom-spacing brand-font" style="clear:both;"><?php echo strtoupper($img['title']); ?></h1><!--display title of image-->
+            
+            <?php
+            
+            # display photo title in normal view, unless administrator is in edit window, then show in input box in order to edit #
+            if(!isset($_GET['edit']) || (!isset($user) || (!$user->isAdmin()) ) ){
+                echo "<h1 class='header primary text-center small-bottom-spacing brand-font' style='clear:both;'>".strtoupper($img['title']);
+
+            }else{ #show title in input box, and display confirmation response window
+                echo "<form action='edit_photo.php?id=".$id."' method='post'>
+                        <p>
+                            <input type='submit' class='confirm confirmation_response' title='confirm changes' value='&#10004;'>
+                            <a href='view.php?id=".$id."' class='deny confirmation_response' title='cancel'>&times;</a>
+                        </p>";
+                echo "<input type='text' name='title' value='" . strtoupper($img['title']) . "' maxLength=18 />";
+            }
+
+            ?>
+            
+            
+            <!--display settings if administrator in order to edit or delete picture -->
+            <?php
+            if(isset($user) && $user->isAdmin()){
+                echo '<ul class="cog">
+                    <li class="cog-btn"><a title="show picture settings"><i class="fas fa-cog" id="cog-btn"></i></a></li>
+                    <ul class="dropdown" id="dropdown">
+                        <li><a href="view.php?id='.$id.'&edit=1" title="edit photo information">Edit Photo</a></li>
+                        <li><a href="delete_photo.php?id='.$id.'" id="delete" title="delete this image">Delete Photo</a></li>
+                    </ul>
+                </ul class="cog">';
+            }
+            ?>
+            </h1>
+        
             <img src="<?php echo $img['file_path']; ?>" /> <!-- display image -->
-            <p class="lead text-center tertiary small-bottom-spacing small-top-spacing"><?php echo $img['description']; ?></p> <!-- display image desciption -->
+        
+            <!-- display image desciption (in textarea if in edit window) -->
+            <?php
+
+            if(!isset($_GET['edit']) || (!isset($user) || (!$user->isAdmin()) ) ){
+                echo "<p class='text text-center tertiary small-bottom-spacing small-top-spacing'>" . $img['description'] . "</p>";
+            }else{
+                echo "<p><textarea name='desc' maxLength=200>" . $img['description'] . "</textarea></p></form>";
+            }
+
+            ?>
+            
         </div>
+        
         
         <!--comment box-->
         <div class="comment-wrapper bg-neutral">
             <?php
             while( $comment = $stmt2->fetch() ){
                 echo "<div class='comment'><p><span class='comment-author primary'>{$comment['username']}: </span><span class='comment-text'>{$comment['comment']}</span></p>
-                <p class='comment-date text-right dark'>{$comment['date_posted']}</p>
-                </div>";
+                <p class='comment-date text-right dark'>{$comment['date_posted']}</p>";
+
+
+                ### allow user who commented and administrator to delete comments ###
+
+                if(isset($user) && ($user->isAdmin() || $comment['user_id'] == $user->getId() ) ){
+                    echo "<p class='text-right'><a href='delete_comment.php?post_id=". $comment['post_id'] ."&id=" . $id . "' style='color:black;' class='delete_comment'><i class='far fa-trash-alt'></i></a></p>";
+                }
+
+                echo "</div>";
             }
         
             ?><!--end of comments-->         
@@ -36,9 +88,9 @@
             
             if(isset($user) ){
                 echo "<form action='view.php?id={$id}' method='post' class='small-top-spacing' >
-                    <textarea placeholder='comment' name='comment' class='comment-input' id='comment' maxLength='300'></textarea><br />
+                    <textarea placeholder='comment' name='comment' class='comment-input' id='comment' maxLength='300' title='enter a comment'></textarea><br />
                     <div class='text-right'>
-                        <input type='submit' class='btn btn-small comment-post' value='post' id='submit' />
+                        <input type='submit' class='btn btn-small comment-post' value='post' id='submit' title='post your comment' />
                     </div>
                 </form>";
             }else{
@@ -49,7 +101,6 @@
         </div>
         
     </article>
-
     
     <script>view();</script>
     
