@@ -1,4 +1,4 @@
-/*Global functions*/
+/*GLOBAL FUNCTIONS*/
 
 /*prompt user to confirm their decision
 use this function when user is choosing to update account details
@@ -12,9 +12,12 @@ function confirm_choice(e){
 
 
 
-/*
-client side form validation
-*/
+
+
+
+/*CLASSES*/
+
+//client side form validation class
 class Validation{
     
     isStrValid(str){ //checks if string input is valid or not
@@ -27,6 +30,14 @@ class Validation{
 }
 
 
+
+
+
+
+
+
+
+/*PAGE SPECIFIC FUNCTIONS*/
 
 
 /*header, navigation and footer specific*/
@@ -53,7 +64,34 @@ function header_footer(){
     content_wrapper.addEventListener('mouseover',function(e){
         sidebar_right.style.display = 'none';
     })
+    
+    
+    
+    //position footer to bottom of page
+    let footer = document.getElementsByTagName('footer')[0]; //get footer container
+    
+    //function which returns the height of the page
+    function getPageHeight(){
+        return Math.max(
+            window.innerHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.body.scrollHeight,
+            document.documentElement.offsetHeight
+        );
+    }
+    
+    footer.style.top = getPageHeight() + 'px';
+    
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -62,6 +100,15 @@ function account(){
     let logout = document.getElementById('logout');
     logout.addEventListener('click', function(e){confirm_choice(e);}) //ask whether user is sure they wish to log out
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123,11 +170,21 @@ function edit_details(){
 /*admin panel page*/
 function admin_panel(){
     
-    let delete_btn = document.getElementById('delete'); //delete button
+    let delete_btn = document.getElementById('delete'); //delete admin user account button
     
     //alert user for confirmation as to whether to delete administrators account or not
     delete_btn.addEventListener('click', function(e){confirm_choice(e);});
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /*file upload page*/
@@ -135,7 +192,7 @@ function file_upload(){
     
     let input, file, upload_btn, file_message;
     
-    
+
     //get file size of uploaded img
     function showFileSize(){
         //return function if fileReader not supported by browser
@@ -145,12 +202,11 @@ function file_upload(){
 
         input = document.getElementById('file');
 
-        if(!input){
-            console.log('no file uploaded');
+        if(!input){ //return if no file uploaded
             return;
         }else{
             file = input.files[0];
-            return file.size;
+            return file.size; //return file size
         }
     }
     
@@ -160,7 +216,7 @@ function file_upload(){
     //prevent form firing if uploaded file is greater than 2MB and inform user
     upload_btn.addEventListener('click', function(e){
         let file_size = showFileSize();
-        if(file_size > 2000000){
+        if(file_size > 2000000){ //file larger than 2mb
             e.preventDefault();
             file_message.textContent = "Oops, your file is too big! The maximum size file we can accept is 2MB.";
         }
@@ -171,8 +227,55 @@ function file_upload(){
 
 
 
+
+
+
+
+
+
+
+
+
 /*views page*/
 function view(){
+    
+    let body = document.getElementsByTagName('body')[0];
+    
+    //allow user to traverse pictures using arrow keys
+    let next_page = document.getElementById('next_page'); //37
+    let previous_page = document.getElementById('previous_page'); //39
+    
+    body.addEventListener('keypress', function(e){
+        let next = 39; //key code for right arrow btn
+        let previous = 37; //key code for left arrow btn
+        let currentUrl = window.location.href;
+        let id = currentUrl.match(/id=\d$/); //find the id
+        id = id[0].substr(3); //get only the number from the id
+        id = parseInt(id); //convert to int from str
+        
+        //display next page if next button is on screen
+        if(next_page && e.keyCode === next){
+            
+            window.location.href = 'view.php?id='+ (id+1);
+            
+        }else if(previous_page && e.keyCode === previous){ //display previous page if previous button is on screen
+            
+            window.location.href = 'view.php?id='+ (id-1);
+        }
+        
+    })
+    
+    
+    
+    
+    
+    /*
+    All code below on the views page is for users and administrators only
+    */
+    if(!document.getElementById('submit')){
+        return; //return function if user is not logged in
+    }
+    
     //prevent user from trying to submit an empty comment
     let submit, comment;
     submit = document.getElementById('submit');
@@ -204,6 +307,68 @@ function view(){
         }
     })
     
+    
+    
+    
+    
+    /*
+    Below code is relevant to administrators only
+    */
+    if(!document.getElementById('cog-btn')){
+        return; //return user if not administrator
+    }
+    
+    
+    //display and hide admin settings when clicked
+    let cog_btn = document.getElementById('cog-btn');
+    let dropdown = document.getElementsByClassName('dropdown')[0];
+    let delete_btn = document.getElementById('delete');
+    
+    
+    dropdown.style.display = 'none'; //set dropdown menu to hidden
+    
+    //if cog btn pressed, display drop down menu, else hide it
+    body.addEventListener('click', function(e){
+        if( (e.target.id==='cog-btn' || e.target.id === 'dropdown') && (dropdown.style.display === 'none') ){ //display dropdown menu if currently hidden
+            dropdown.style.display = 'inline-block';
+        }else{
+            dropdown.style.display = 'none';
+        }
+    })
+    
+    //if delete button pressed, prompt user to confirm
+    delete_btn.addEventListener('click', function(e){
+        let confirmation = confirm('Are you sure you want to delete this photo?');
+        if(!confirmation){
+            e.preventDefault();
+        }
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //get confirmation from user to delete picture comment
+    let delete_comment_btn = document.getElementsByClassName('delete_comment'); //store all trash cans/delete comment buttons
+    
+    for(let i = 0; i<delete_comment_btn.length; i++){ //loop through all trash cans in order to add a click event
+        //alert user to ask whether they are sure they want to delete comment
+        delete_comment_btn[i].addEventListener('click', function(e){
+            let response = confirm('Are you sure you want to delete this comment?');
+            if(!response){ //prevent comment being deleted if cancelled pop up box
+                e.preventDefault();
+            }
+        })
+    }
 }
 
 
