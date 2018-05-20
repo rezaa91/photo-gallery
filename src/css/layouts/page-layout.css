@@ -7,6 +7,48 @@ PAGE CONTENT
     z-index:1;
 }
 
+
+
+
+/*footer settings*/
+footer{
+    padding-left:50px;
+    position:absolute;
+    bottom:0px;
+    height:100px;
+    display:flex;
+    width:100%;
+    background-color:#121212;
+    box-shadow:1px -1px 3px black;
+}
+
+#left-footer{
+    flex:1;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+#left-footer p{
+    color:#c4c4c4;
+}
+
+#right-footer{
+    text-align: right;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-right:50px;
+    flex:1;
+}
+#right-footer ul li{
+    display: inline-block;
+    
+}
+
+#right-footer a:hover{
+    opacity:0.8;
+}
+
+
 @media only screen and (max-width:768px){
     #content_wrapper{
         width:100%;

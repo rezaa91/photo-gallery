@@ -11,6 +11,7 @@ in order to be accessible by HTML in one place
 /*components*/
 @import "components/button.css";
 @import "components/input.css";
+@import "components/cog.css";
 
 
 /*layouts*/
@@ -20,6 +21,10 @@ in order to be accessible by HTML in one place
 @import "layouts/gallery.css";
 @import "layouts/index.css";
 @import "layouts/login.css";
+
+
+/*pages*/
+@import "pages/view.css";
 
 
 /*utilities*/

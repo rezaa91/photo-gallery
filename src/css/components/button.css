@@ -41,3 +41,12 @@ button styling
 .disabled:active{
     box-shadow:0px 0px 0px black;
 }
+
+/*navigation buttons on view.html*/
+.navigate{
+    font-size:32px;
+    color:#226666;
+}
+.navigate:hover{
+    opacity:0.8;
+}

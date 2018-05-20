@@ -32,7 +32,7 @@
     }
     .panel-img{
         width:200px;
-        height:inherit;
+        max-height:80px;
     }
 }
 
