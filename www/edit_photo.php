@@ -5,7 +5,7 @@ require('../core/init.php');
 
 if( ($_SERVER['REQUEST_METHOD'] == "POST") && ( isset($user) && ($user->isAdmin()) ) ){
     
-    $id = $_GET['id'];
+    $id = $_GET['id']; //this is the order_id
     
     try{
         //validate post data
@@ -13,20 +13,19 @@ if( ($_SERVER['REQUEST_METHOD'] == "POST") && ( isset($user) && ($user->isAdmin(
         $title = $validate->isStrValid($_POST['title']);
         $desc = $validate->isStrValid($_POST['desc']);
         
-        echo $title;
-        
         //find current selected photo in database
         $q = "SELECT title, description FROM photos WHERE photo_id=:photo_id";
         $stmt = $pdo->prepare($q);
         $r = $stmt->execute(array(':photo_id' => $id));
 
         if($r){ //if query executed successfully, update with new data
-            $q = "UPDATE photos SET title=:title, description=:description WHERE photo_id=:photo_id";
+            $q = "UPDATE photos SET title=:title, description=:description WHERE order_id=:order_id";
             $stmt = $pdo->prepare($q);
-            $r = $stmt->execute(array(':title' => $title, ':description' => $desc, ':photo_id' => $id));
+            $r = $stmt->execute(array(':title' => $title, ':description' => $desc, ':order_id' => $id));
             
             if($r){
                 header('location:view.php?id='.$id);
+                exit();
             }else{
                 throw new Exception('Sorry, something went wrong. Please try editing the photo again');
             }
