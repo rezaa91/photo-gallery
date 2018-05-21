@@ -7,6 +7,7 @@ class Photos{
     protected $description = null;
     protected $file_path = null;
     protected $upload_date = null;
+    protected $order_id = null;
     
     //get properties
     function getPhotoId(){
@@ -26,6 +27,9 @@ class Photos{
     }
     function getUploadDate(){
         return $this->upload_date;
+    }
+    function getOrderId(){
+        return $this->order_id;
     }
 }
 

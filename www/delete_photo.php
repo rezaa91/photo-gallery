@@ -8,34 +8,55 @@ require('../core/init.php');
 if($_SERVER['REQUEST_METHOD'] == "GET" && ( isset($user) && $user->isAdmin() ) ){
     
     //get photo id
-    $photo_id = $_GET['id'];
+    $order_id = $_GET['id'];
     
     try{
         
     
         //select photo to delete, and then remove from database
-        $q = "SELECT photo_id, file_path FROM photos WHERE photo_id=:photo_id LIMIT 1";
+        $q = "SELECT photo_id, file_path, order_id FROM photos WHERE order_id=:order_id LIMIT 1";
         $stmt = $pdo->prepare($q);
-        $r = $stmt->execute(array(':photo_id' => $photo_id));
+        $r = $stmt->execute(array(':order_id' => $order_id));
         
         if($r){//if query executed successfully, delete photo
             
             //get file path
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $photo = $stmt->fetch();
-            $file_path = $photo['file_path'];
+            $photo_id = $photo['photo_id']; //get photo id, to be used in query below which adjusts order_id to be aligned with no gaps 
+            $file_path = $photo['file_path']; //get file path to the photo in the uploads/ dir
+            $order_id = $photo['order_id']; //get the order_id value
             
+            
+            
+            //adjust all values in the order_id column in mysql, that came after the deleted photo, minus 1. So no gaps in order
+            $q2 = "UPDATE photos SET order_id = (order_id - 1) WHERE photo_id > :photo_id";
+            $stmt2 = $pdo->prepare($q2);
+            $r2 = $stmt2->execute(array(':photo_id' => $photo_id));
+            
+            
+            
+            //delete photo from database
             $q = "DELETE FROM photos WHERE photo_id=:photo_id LIMIT 1";
             $stmt = $pdo->prepare($q);
             $r = $stmt->execute(array(':photo_id' => $photo_id));
             
-            if($r){ //if photo removed from database, remove from folder and redirect user to gallery
-                
+            
+            
+            
+            
+            if($r && $r2){ //if photo removed from database, and the order_id of all other rows have been changed, then remove from folder and redirect user to gallery - i.e. photo deleted successfully
+
                 //delete photo from uploads dir
                 unlink($file_path);
                 
-                //redirect user to gallery
-                header('location:gallery.php');
+                //redirect user to next picture along, if not the last image
+                if( ($order_id - 1) != 0 ){
+                    header('location:view.php?id='. ($order_id - 1));
+                }else{ //redirect to gallery.php if the last image is deleted
+                    header('location:gallery.php');
+                }
+                
             
             }else{//if problem with database, throw error
                 throw new Exception('Sorry, something went wrong. Please try again.');

@@ -8,7 +8,7 @@ Needed Features for version 1.1.1:
 
 allow users/administrators to delete comments ------ COMPLETED
 
-allow administrators to delete pictures - making sure to be able to navigate through database fluidly with no gaps
+allow administrators to delete pictures - making sure to be able to navigate through database fluidly with no gaps ----- COMPLETED
 
 show contact information in footer ----- COMPLETED
 

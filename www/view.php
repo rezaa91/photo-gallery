@@ -4,7 +4,7 @@ require('../core/init.php');
 
 if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
     
-    //get photo id
+    //get order id from URL - order_id is a column in the photos table which specifies the order that pictures are to be displayed
     $id = $_GET['id'];
     
     try{
@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
         
         
         //get the selected picture from the database
-        $q  = 'SELECT * FROM photos WHERE photo_id=:id LIMIT 1';
+        $q  = 'SELECT * FROM photos WHERE order_id=:id LIMIT 1';
         $stmt = $pdo->prepare($q);
         $r = $stmt->execute(array(':id'=>$id));
         

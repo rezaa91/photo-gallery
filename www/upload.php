@@ -46,11 +46,24 @@ if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['
                     
                     $file_path = $location.$name; //get file path
                     
+                    
+                    
+                    //find the number of rows in the database in order to set the order_id to this value to the newly uploaded photo
+                    $query = "SELECT COUNT(photo_id) AS total FROM photos";
+                    $result = $pdo->query($query);
+                    $result->setFetchMode(PDO::FETCH_ASSOC);
+                    $number_of_rows = $result->fetch();
+                    $total_rows = $number_of_rows['total']; //total number of rows currently in photos table
+                    
+                    
+
                     //insert photo information in to database
-                    $q = "INSERT INTO photos(user_id, title, description, file_path, upload_date) VALUES(:user_id, :title, :description, :file_path, NOW())";
+                    $q = "INSERT INTO photos(user_id, title, description, file_path, upload_date, order_id) VALUES(:user_id, :title, :description, :file_path, NOW(), :order_id)";
                     
                     $stmt = $pdo->prepare($q);
-                    $r = $stmt->execute(array(':user_id'=>$user->getId(), ':title' => $title, ':description' => $description, ':file_path' => $file_path ));
+                    $r = $stmt->execute(array(':user_id'=>$user->getId(), ':title' => $title, ':description' => $description, ':file_path' => $file_path, ':order_id' => ($total_rows + 1) ));
+                    
+                    
                     
                     if(!$r){ //if query executed unsuccessfully
                         throw new Exception('Sorry, something went wrong. Please try again');
