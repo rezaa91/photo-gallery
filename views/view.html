@@ -73,7 +73,7 @@
                 ### allow user who commented and administrator to delete comments ###
 
                 if(isset($user) && ($user->isAdmin() || $comment['user_id'] == $user->getId() ) ){
-                    echo "<p class='text-right'><a href='delete_comment.php?post_id=". $comment['post_id'] ."&id=" . $id . "' style='color:black;' class='delete_comment'><i class='far fa-trash-alt'></i></a></p>";
+                    echo "<p class='text-right'><a href='delete_comment.php?post_id=". $comment['post_id'] ."&id=" . $comment['photo_id'] . "&current=" . $comment['order_id'] . "' style='color:black;' class='delete_comment'><i class='far fa-trash-alt'></i></a></p>";
                 }
 
                 echo "</div>";
