@@ -66,23 +66,6 @@ function header_footer(){
     })
     
     
-    
-    //position footer to bottom of page
-    let footer = document.getElementsByTagName('footer')[0]; //get footer container
-    
-    //function which returns the height of the page
-    function getPageHeight(){
-        return Math.max(
-            window.innerHeight,
-            document.body.offsetHeight,
-            document.documentElement.clientHeight,
-            document.body.scrollHeight,
-            document.documentElement.offsetHeight
-        );
-    }
-    
-    footer.style.top = getPageHeight() + 'px';
-    
 }
 
 
@@ -256,11 +239,11 @@ function view(){
         //display next page if next button is on screen
         if(next_page && e.keyCode === next){
             
-            window.location.href = 'view.php?id='+ (id+1);
+            window.location.href = 'axphotography.co.uk/view.php?id='+ (id+1);
             
         }else if(previous_page && e.keyCode === previous){ //display previous page if previous button is on screen
             
-            window.location.href = 'view.php?id='+ (id-1);
+            window.location.href = 'axphotography.co.uk/view.php?id='+ (id-1);
         }
         
     })
