@@ -10,6 +10,7 @@ if(isset($user) && $_SERVER['REQUEST_METHOD'] == "GET"){
         //store post id and photo id in var
         $photo_id = $_GET['id'];
         $post_id = $_GET['post_id'];
+        $order_id = $_GET['current'];
         
         //before allowing to delete, make sure user is admin or if not, make sure user is the one who posted the comment
         //select the post which was selected on view.html
@@ -29,7 +30,7 @@ if(isset($user) && $_SERVER['REQUEST_METHOD'] == "GET"){
             $r = $stmt->execute(array(':post_id'=>$post_id));
             
             if($r){ //redirect user back to view page if deleted successfull
-                header('location:view.php?id='.$photo_id);
+                header('location:view.php?id=' . $order_id);
                 
                 
             }else{//if error with query, inform user
