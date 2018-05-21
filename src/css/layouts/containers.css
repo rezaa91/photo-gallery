@@ -48,6 +48,7 @@
     width:300px;
     height:200px;
     border-radius:10px;
+    object-fit: cover;
 }
 .recent-img:hover{
     opacity:0.9;
@@ -98,15 +99,16 @@
 
 @media only screen and (max-width:576px){
     .recent-panel{
+        display:block;
         width:100%;
         margin: 10px auto;
+        overflow:hidden;
     }
     .recent-title{
         display:none;
     }
     .recent-img{
         width:100%;
-        height:inherit;
     }
     .comment-wrapper{
         height:200px;

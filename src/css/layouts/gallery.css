@@ -11,6 +11,7 @@
 .panel-img{
     width:300px;
     height:220px;
+    object-fit: cover;
     border-radius:10px;
 }
 
