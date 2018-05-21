@@ -17,22 +17,8 @@ if(isset($_SESSION['user']) && (isset($_SESSION['agent']) && $_SESSION['agent'] 
 }
 
 
-//config file to store database data
-$_CONFIG = [
-    'server' => [
-        'host' => 'db738551371.db.1and1.com',
-        'port' => 3306,
-        'username' => 'dbo738551371',
-        'password' => 'Issaee50!',
-        'db_name' => 'db738551371'
-    ],
-    'local_server' => [
-        'host' => '127.0.0.1',
-        'username' => 'root',
-        'password' => 'Issaee50!',
-        'db_name' => 'gallery'
-    ]
-];
+//require the configuration file which shows server settings
+require('config.php');
 
 
 //comment the below code out on localhost
