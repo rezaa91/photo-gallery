@@ -26,6 +26,14 @@ Only display relevant scripts on web directory ------ COMPLETED
 
 exit from all scripts which catch an error ------ COMPLETED
 
+add SSL certificate
+
+test long/skinny and wide and narrow photos in mobile view and ensure they dont look stretched ------ COMPLETED
+
+footer styling needs adjusting for mobile view ----- COMPLETED
+
+
+
 
 
 
