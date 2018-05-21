@@ -3,7 +3,7 @@ require('../core/init.php');
 
 
 try{
-    $q = 'SELECT * FROM photos ORDER BY photo_id DESC LIMIT 3';
+    $q = 'SELECT * FROM photos ORDER BY order_id DESC LIMIT 3';
     $r = $pdo->query($q);
     
     if($r){ //if query ran ok, display home page
