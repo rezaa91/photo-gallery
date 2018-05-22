@@ -5,13 +5,13 @@ require('../core/init.php');
 
 if( ($_SERVER['REQUEST_METHOD'] == "POST") && ( isset($user) && ($user->isAdmin()) ) ){
     
-    $id = $_GET['id']; //this is the order_id
+    $id = $_GET['id']; //this is the order_id of the selected photo
     
     try{
         //validate post data
         $validate = new Validate();
-        $title = $validate->isStrValid($_POST['title']);
-        $desc = $validate->isStrValid($_POST['desc']);
+        $title = $validate->isStrValid($_POST['title']); //validate title
+        $desc = $validate->isStrValid($_POST['desc']); //validate description
         
         //find current selected photo in database
         $q = "SELECT title, description FROM photos WHERE photo_id=:photo_id";
@@ -27,21 +27,18 @@ if( ($_SERVER['REQUEST_METHOD'] == "POST") && ( isset($user) && ($user->isAdmin(
                 header('location:view.php?id='.$id);
                 exit();
             }else{
-                throw new Exception('Sorry, something went wrong. Please try editing the photo again');
+                throw new Exception('Sorry, something went wrong. Please<a href="view.php?id='.$id.'">try again.</a>');
             }
             
             
 
-        }else{
-            throw new Exception('Sorry, we could not edit your photo due to server error. Please try again');
+        }else{ //if error with database finding photo
+            throw new Exception('Sorry, we could not edit your photo due to server error. Please<a href="view.php?id='.$id.'">try again.</a>');
         }
         
         
     }catch(Exception $e){ //display errors if any
-        $page_title = "Error";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e);
         exit();
     }
     

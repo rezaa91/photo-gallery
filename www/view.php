@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
             
             //throw exception if false id passed in to url
             if(!$img){
-                throw new Exception('Oops, this page does not exist. <a href="gallery.php">Go back</a>');
+                throw new Exception('Oops, this page does not exist.<a href="gallery.php">Go back.</a>');
             }
             
             
@@ -72,10 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
         }
         
     }catch(Exception $e){
-        $page_title = "Error";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page
         exit();
     }
     
@@ -121,10 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
             throw new Exception("Please enter a comment.<a href='view.php?id=$id'>Go back</a>");
         }
     }catch(Exception $e){
-        $page_title = "Error";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page
         exit();
     }   
     

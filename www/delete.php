@@ -6,7 +6,7 @@ if(isset($user) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){
     
     try{
     
-        //delete user from database
+        //delete administrator from database - as long as administrator isn't the last remaining administrator
         if($user->isAdmin()){
             //check if last administrator before allowing to delete account
             $q = "SELECT id FROM users WHERE member_type=1";
@@ -28,19 +28,20 @@ if(isset($user) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){
                     include('../views/deleted.html');
                     include('../includes/footer.inc.php');
                     
-                }else{ //throw error if query executed unsuccessfully
-                    throw new Exception('Sorry, something went wrong. Please try again.');
+                }else{ //if unable to delete user due to system error
+                    throw new Exception('Sorry, something went wrong. Please<a href="admin.php">try again</a>.');
                 }
                 
-            }else{
-                throw new Exception('There must be at least 1 administrator.');
+            }else{ //If there is only one administrator, inform user there must be at least one
+                throw new Exception('There must be at least 1 administrator.<a href="admin.php">Go back.</a>');
             }
         
             
 
-        }else{
+        }else{ //if user is not an administrator - delete their standard account
+            
             //delete account
-            $q = "DELETE FROM users WHERE id=:id";
+            $q = "DELTE FROM users WHERE id=:id";
             $stmt = $pdo->prepare($q);
             $r = $stmt->execute(array(':id' => $user->getId()));
 
@@ -56,15 +57,12 @@ if(isset($user) && $_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])){
                 include('../includes/footer.inc.php');
 
             }else{//throw new exception if error with query
-                throw new Exception('Sorry, something went wrong. We could not delete you from our records, please try again.');
+                throw new Exception('Sorry, something went wrong. We could not delete you from our records, please<a href="edit.php?id='.$user->getId().'">try again.</a>'); //send back to edit page
             }
         }
         
     }catch(Exception $e){
-        $page_title = 'Error';
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page
         exit();
     }
     

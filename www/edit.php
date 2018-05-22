@@ -1,12 +1,15 @@
 <?php
 
+#this scripts edits a users account details - email, password, name...
+
 require('../core/init.php');
 
 //check if user is in session and if server request = get, and id is set
 if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
     
     //if page accessed via GET
-    if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
+    //extra security passed so user can not type in random id to access other users accounts
+    if($_SERVER['REQUEST_METHOD'] == "GET" && ( (isset($_GET['id'])) && ($_GET['id'] == $user->getId()) ) ){
         try{
             //get data from database
             $q = 'SELECT * FROM users WHERE id=:id';
@@ -26,35 +29,32 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
 
 
             }else{
-                throw new Exception('Sorry, something went wrong. Please try again');
+                throw new Exception('Sorry, something went wrong. Please<a href="edit.php?id='.$_GET['id'].'">try again.</a>');
             }
         
         
         }catch(Exception $e){
-            $page_title = "Error";
-            include('../includes/header.inc.php');
-            include('../views/error.html');
-            include('../includes/footer.inc.php');
+            display_errors_page($e);
             exit();
         }
         
         
-    //if page accessed via form submission    
+    //if page accessed via form submission  - in order to change account details   
     }else if($_SERVER['REQUEST_METHOD'] == "POST"){
         
         //validate inputted form data
         $validate = new Validate();
         
-        $first_name = $validate->isStrValid($_POST['first_name']);
-        $last_name = $validate->isStrValid($_POST['last_name']);
-        $email = $validate->isEmailValid($_POST['email']);
-        $pass = $validate->isStrValid($_POST['pass']);
-        $confirm_pass = $validate->isStrValid($_POST['confirm_pass']);
+        $first_name = $validate->isStrValid($_POST['first_name']); //validate first name
+        $last_name = $validate->isStrValid($_POST['last_name']); //validate last name
+        $email = $validate->isEmailValid($_POST['email']); //validate email
+        $pass = $validate->isStrValid($_POST['pass']); //validate password
+        $confirm_pass = $validate->isStrValid($_POST['confirm_pass']); //validate password confirmation
         
-        //change data that has been edited
+        //change data in database with new information that has been passed through form
         try{
             
-            $success = null;
+            $success = null; //this var value is changed to a HTML success message on database query succession
             
             //change password if data inputted and is equal to password confirmation
             if(!empty($pass) && !empty($confirm_pass)){ //if data has been inputted in to both fields (assume user is wanting to change password)
@@ -64,13 +64,13 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
                     $r = $stmt->execute(array(':pass' => $pass));
 
                     if($r){ //if query executed successfully, display success message to user                        
-                        $success = "Password changed successfully";
+                        $success = "Password changed successfully"; //this var is used in edit.html to display message
 
                     }else{ //if problem with query
-                        throw new Exception("Sorry, something went wrong. Please try again.");
+                        throw new Exception("Sorry, something went wrong. Please<a href='account.php'>try again.</a>");
                     }
                 }else{
-                    throw new Exception('Password and password confirmation do not match');
+                    throw new Exception('Password and password confirmation do not match. Please<a href="account.php">try again</a>');
                 }
             }
             
@@ -96,12 +96,12 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
                     
                     $_SESSION['user'] = $user; //update the session with the updated user information for immediate effect
                     
-                }else{
-                    throw new Exception('Sorry, something went wrong. Please try again.');
+                }else{ //if error updating database with new information, prompt user to try again
+                    throw new Exception('Sorry, something went wrong. Please<a href="account.php">try again.</a>');
                 }
                 
-            }else{
-                throw new Exception('There are empty fields in your form. Please fill the forms with the correct data.');
+            }else{ //display error if empty fields prompting users to fill it all in
+                throw new Exception('There are empty fields in your form. Please fill the forms with the correct data.<a href="account.php">Go back.</a>');
             }
             
             //get user information in order to display form with up to date data
@@ -119,14 +119,11 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
                 include('../views/edit.html');
                 include('../includes/footer.inc.php');
             }else{
-                throw new Exception('Something went wrong. Please try again.');
+                throw new Exception('Something went wrong. Please<a href="account.php">try again</a>');
             }
                 
         }catch(Exception $e){
-            $page_title = "Error";
-            include('../includes/header.inc.php');
-            include('../views/error.html');
-            include('../includes/footer.inc.php');
+            display_errors_page($e);
             exit();
         }  
         

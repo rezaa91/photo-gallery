@@ -36,7 +36,7 @@ try{
     
     
     
-    $q = "SELECT * FROM photos ORDER BY photo_id DESC LIMIT $start, $display" ; //get newest pic first
+    $q = "SELECT * FROM photos ORDER BY photo_id DESC LIMIT $start, $display" ; //get newest uploaded photo first
     $r = $pdo->query($q);
     
     if($r){//if query executed successfully
@@ -49,16 +49,13 @@ try{
         include('../views/gallery.html');
         include('../includes/footer.inc.php');
     
-    }else{
-        throw new Exception('Sorry, something went wrong, please try again.');
+    }else{ //if error retrieving photos
+        throw new Exception('Sorry, something went wrong. Please<a href="gallery.php">try again</a>.');
     }
     
     
 }catch(Exception $e){
-    $page_title = "Errors";
-    include('../includes/header.inc.php');
-    include('../views/errors.html');
-    include('../includes/footer.inc.php');
+    display_errors_page($e);
     exit();
 }
 

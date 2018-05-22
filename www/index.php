@@ -15,16 +15,13 @@ try{
         include('../views/index.html');
         include('../includes/footer.inc.php');
     }else{ //if error with query, throw new exception to inform user on error page
-        throw new Exception('Sorry, something went wrong. Please refresh the page.');
+        throw new Exception('Sorry, something went wrong. Please<a href="index.php">try again</a>');
     }
     
     
     
 }catch(Exception $e){
-    $page_title = "Error!";
-    include('../includes/header.inc.php');
-    include('../views/error.html');
-    include('../includes/footer.inc.php');
+    display_errors_page($e);
     exit();
 }
 

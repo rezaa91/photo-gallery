@@ -17,14 +17,11 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
             $r->setFetchMode(PDO::FETCH_ASSOC);
             
         }else{ //if unsuccessful query, throw exception
-            throw new Exception('Sorry, something went wrong. Please try again.');
+            throw new Exception('Sorry, something went wrong. Please<a href="admin.php">try again.</a>');
         }
         
     }catch(Exception $e){
-        $page_title = "Error";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page and exit from script
         exit();
     }
     
@@ -64,16 +61,16 @@ if(isset($user) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){
                         }
 
 
-                    }else{
-                        throw new Exception('The username and/or email is already in our database. Please choose another. <a href="admin.php>go back</a>"');
+                    }else{ //if username/email already exist in the database, prompt user to choose another
+                        throw new Exception('The username and/or email is already in our database. Please choose another.<a href="admin.php>go back.</a>"');
                     }
 
-                }else{
-                    throw new Exception('your password and password confirmation do not match. <a href="admin.php">go back</a>');
+                }else{ //if password and password confirmation do not match, inform user
+                    throw new Exception('your password and password confirmation do not match.<a href="admin.php">go back.</a>');
                 }
 
-            }else{
-                throw new Exception('Please enter valid information in to each input field. <a href="admin.php">go back</a>');
+            }else{ //if invalid data passed to form
+                throw new Exception('Please enter valid information in to each input field.<a href="admin.php">go back.</a>');
             }
             
         }catch(Exception $e){ //display errors if any

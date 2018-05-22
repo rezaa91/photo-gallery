@@ -31,19 +31,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 exit();
                 
             }else{
-                throw new Exception('Your details are not recognised, please register. <a href="login.php">go back</a>');
+                throw new Exception('Your details are not recognised, please register.<a href="login.php">Go back.</a>');
             }
             
         }else{
-            throw new Exception('Please fill the form in correctly <a href="login.php">go back</a>');
+            throw new Exception('Please fill the form in correctly.<a href="login.php">Go back.</a>');
         }
         
     }catch(Exception $e){
         //if form filled incorrectly - display errors page and exit script
-        $page_title = "Error!";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e);
         exit(); 
     }
     

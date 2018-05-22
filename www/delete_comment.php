@@ -33,14 +33,14 @@ if(isset($user) && $_SERVER['REQUEST_METHOD'] == "GET"){
                 header('location:view.php?id=' . $order_id);
                 
                 
-            }else{//if error with query, inform user
-                throw new Exception('Sorry, we could not delete the comment, please try again.');
+            }else{//if error with deleting the comment, inform user
+                throw new Exception('Sorry, we could not delete the comment, please<a href="view.php?id='.$order_id.'">try again.</a>');
             }
             
             
             
         }else{ //if error with finding the selected post
-            throw new Exception('Sorry, we could not delete the comment, please try again.');
+            throw new Exception('Sorry, we could not delete the comment, please<a href="view.php?id='.$order_id.'">try again.</a>');
         }
         
         
@@ -48,10 +48,7 @@ if(isset($user) && $_SERVER['REQUEST_METHOD'] == "GET"){
         
         
     }catch(Exception $e){
-        $page_title = "Error!";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e);
         exit();
     }
     

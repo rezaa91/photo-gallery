@@ -58,21 +58,18 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && ( isset($user) && $user->isAdmin() ) )
                 }
                 
             
-            }else{//if problem with database, throw error
-                throw new Exception('Sorry, something went wrong. Please try again.');
+            }else{//if problem with removing photo from database, throw error
+                throw new Exception('Sorry, something went wrong. Please<a href="view.php?id='.$order_id.'">try again.</a>');
             }
             
         
         }else{ //throw error if problem with query
-            throw new Exception('Sorry, something went wrong. Please try again.');
+            throw new Exception('Sorry, something went wrong. Please<a href="view.php?id='.$order_id.'">try again.</a>');
         }
         
         
     }catch(Exception $e){ //display error page
-        $page_title = "Error!";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page
         exit();
     }
     

@@ -35,28 +35,25 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         include('../views/registered.html');
                         include('../includes/footer.inc.php');
                         
-                    }else{
-                        throw new Exception('Sorry, something went wrong. Please try again. <a href="login.php">go back</a>');
+                    }else{ //if error inserting user in to database
+                        throw new Exception('Sorry, something went wrong. Please try again.<a href="login.php">Go back.</a>');
                     }
                     
                     
-                }else{
-                    throw new Exception('The username and/or email is already in our database. Please choose another. <a href="login.php>go back</a>"');
+                }else{ //if username/email which was inputted already exist, prompt user to choose another
+                    throw new Exception('The username and/or email is already in our database. Please choose another.<a href="login.php">Go back.</a>');
                 }
                 
-            }else{
-                throw new Exception('your password and password confirmation do not match. <a href="login.php">go back</a>');
+            }else{ //if password and password confirmation do not match, inform user
+                throw new Exception('your password and password confirmation do not match.<a href="login.php">Go back.</a>');
             }
             
-        }else{
-            throw new Exception('Please enter valid information in to each input field. <a href="login.php">go back</a>');
+        }else{ //if invalid data passed to form, inform user
+            throw new Exception('Please enter valid information in to each input field.<a href="login.php">Go back.</a>');
         }
         
     }catch(Exception $e){
-        $page_title = "Error";
-        include('../includes/header.inc.php');
-        include('../views/error.html');
-        include('../includes/footer.inc.php');
+        display_errors_page($e); //display error page
         exit();
     }
 }else{ //if page accessed in error - redirect to login page
