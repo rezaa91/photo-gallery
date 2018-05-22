@@ -1,2 +1,8 @@
+#uploads directory
 uploads/
+
+#server configuration array
 core/config.php
+
+#htaccess file
+.htaccess
