@@ -16,14 +16,16 @@
         
         <!--fonts-->
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script|Abril+Fatface" rel="stylesheet"> 
-        <link rel="stylesheet" href="../src/css/webfonts/fontawesome-all.css" /><!--font awesome-->
+        <link rel="stylesheet" href="src/css/webfonts/fontawesome-all.css" /><!--font awesome-->
 
         
         <!--stylesheets-->
-        <link rel="stylesheet" href="../src/css/styles.css" />        
+        <link rel="stylesheet" href="src/css/styles.css" />        
         
         <!--scripts-->
-        <script src="../src/js/app.js"></script>
+        <script src="src/js/app.js"></script>
+        
+        
         
         <!--cookie popup-->
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
