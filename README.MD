@@ -22,7 +22,7 @@ $_CONFIG = [
 * Go to phpmyadmin and create a database called 'gallery'
 * Import the gallery.sql file in to the newly created gallery database
 * On PHPMYADMIN, in your users table, insert an administrator in to the table:
-INSERT INTO users(email, first_name, last_name, pass, member_type, reg_date)VALUES('YOUR EMAIL', 'YOUR FIRST NAME', 'YOUR LAST NAME', SHA1('PASSWORD'), 1, NOW())
+INSERT INTO users(email, username, first_name, last_name, pass, member_type, reg_date)VALUES('YOUR EMAIL', 'YOUR USERNAME', 'YOUR FIRST NAME', 'YOUR LAST NAME', SHA1('PASSWORD'), 1, NOW())
 
 
 
