@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2018 at 10:21 PM
+-- Generation Time: May 22, 2018 at 06:52 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.2.5
 
@@ -34,7 +34,8 @@ CREATE TABLE `photos` (
   `title` tinytext NOT NULL,
   `description` text NOT NULL,
   `file_path` varchar(260) NOT NULL,
-  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `order_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -46,6 +47,7 @@ CREATE TABLE `photos` (
 CREATE TABLE `posts` (
   `post_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
+  `photo_id` int(10) UNSIGNED NOT NULL,
   `pic_comment` text NOT NULL,
   `date_posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -68,13 +70,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `email`, `username`, `first_name`, `last_name`, `pass`, `member_type`, `reg_date`) VALUES
-(1, 'rezaa91@hotmail.co.uk', 'rezaa91', 'ali', 'issaee', '19f1e7766b2c6edb5a4ee8c22172e8c093d60d2f', 1, '2018-05-16 19:59:06');
-
---
 -- Indexes for dumped tables
 --
 
@@ -90,7 +85,8 @@ ALTER TABLE `photos`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `photo_id` (`photo_id`);
 
 --
 -- Indexes for table `users`
@@ -108,19 +104,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `photo_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `photo_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
