@@ -8,6 +8,13 @@ function class_loader($class){
 spl_autoload_register('class_loader');
 
 
+
+//include functions
+include('../functions/display_errors.php'); //display errors page
+
+
+
+
 //begin the session
 session_start();
 
