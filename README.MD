@@ -30,31 +30,37 @@ test long/skinny and wide and narrow photos in mobile view and ensure they dont 
 
 footer styling needs adjusting for mobile view ----- COMPLETED
 
-add SSL certificate
-
 copy server directory structure as different to local dir, local dir structure as is will not work on server ----- COMPLETED
 
-Go through catch blocks and ensure error messages provide a link to a previous page
+Go through catch blocks and ensure error messages provide a link to a previous page ------ COMPLETED
 
 MASSIVE BUG - Users can manually type a different id on edit.php to see other users details!!!***** ----- COMPLETED
 
+add SSL certificate and .htdocs to access https
 
 
 
 
-Bug Fixes for version 1.1.2
+
+Bug Fixes for version 1.1.2+
 
 Apply DRY using functions for errors ----- COMPLETED
 
-Look in to minifying scripts
+Increased SEO ------- COMPLETED
 
-Increased SEO
+Add comments at the top of each script explaining what it does ------- COMPLETED
+
+Test all catch blocks -------- COMPLETED
+
+Look in to minifying scripts
 
 Download fonts instead of using CDN link
 
-Add comments at the top of each script explaining what it does
+Add notifications functionality
 
-Test all catch blocks -------- COMPLETED
+Add emailing functions - to the user when a user registers, to administrator when a photo gets a comment, to the user when a photo they have commented on also gets commented on
+
+Add logo to browser tab
 
 
 
@@ -62,7 +68,9 @@ Test all catch blocks -------- COMPLETED
 
 
 Features for version 1.2:
-Make administrator able to create albums
-notify administrators via email when a comment is added
-show notifications to administrators when logged on with new notifications
-use sass for CSS
+Make administrator able to create albums, delete full albums, delete numerous pictures at once, move pictures to different albums
+
+use sass for CSS and improve overall styling of website
+
+Add a like/favourite button to pictures
+
