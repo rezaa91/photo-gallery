@@ -34,7 +34,7 @@ if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['
                     }
                     
                     if(!empty($name)){
-                        $location = '../uploads/'; //directory
+                        $location = 'uploads/'; //directory
                         if(move_uploaded_file($temp_name, $location.$name)){ //move file to uploads directory
                             $success = "File uploaded successfully, <a href='gallery.php'>view in gallery</a>";
                         }else{
