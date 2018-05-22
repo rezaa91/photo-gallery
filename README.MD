@@ -32,14 +32,28 @@ footer styling needs adjusting for mobile view ----- COMPLETED
 
 add SSL certificate
 
-copy server directory structure as different to local dir, local dir structure as is will not work on server
+copy server directory structure as different to local dir, local dir structure as is will not work on server ----- COMPLETED
+
+
+
+
+Bug Fixes for version 1.1.2
+
+Apply DRY using functions - especially for errors
+
+Look in to minifying scripts
+
+Increased SEO
+
+Download fonts instead of using CDN link
 
 
 
 
 
 
-Features for version 2:
+Features for version 1.2:
 Make administrator able to create albums
 notify administrators via email when a comment is added
 show notifications to administrators when logged on with new notifications
+use sass for CSS
