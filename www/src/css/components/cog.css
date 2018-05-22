@@ -1,0 +1,40 @@
+.cog{
+    margin-bottom:10px;
+    font-size:16px;
+    position:relative;
+    z-index:1;
+}
+
+.cog a{
+    color:black;
+}
+
+.cog-btn a{
+    color:grey;
+    font-size:20px;
+}
+
+
+.cog a:hover{
+    opacity:0.8;
+}
+
+.dropdown{
+    margin-top:3px;
+    box-shadow:1px 1px 3px black;
+    display:inline-block;
+    background-color:white;
+    position:absolute;
+    display:none;
+}
+
+.dropdown li, a{
+    padding:5px 8px;
+}
+
+.dropdown li:hover{
+    background-color:#226666;
+}
+.dropdown a:hover{
+    color:white;
+}

@@ -1,0 +1,18 @@
+
+/*box styling which appears when administrator is in edit window in view.html*/
+.confirmation_response{
+    border:0;
+    box-shadow:0px 0px 0px black;
+    background-color:#226666;
+    color:rgb(251,253,255);
+    border-radius:5px;
+    padding:0;
+    padding:7px;
+    font-weight: bold;
+}
+
+.deny{
+    background-color:#b12a16;
+    color:rgb(251,253,255);
+    padding:8px;
+}

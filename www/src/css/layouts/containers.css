@@ -1,0 +1,118 @@
+/*default containers*/
+.full{
+    width:100%;
+    padding:20px;
+}
+
+.offset{
+    width:80%;
+    margin:auto;
+    padding:20px;
+    margin-top:20px;
+}
+
+.top-spacing{
+    margin-top:30px;
+}
+.small-top-spacing{
+    margin-top:15px;
+}
+.bottom-spacing{
+    margin-bottom:30px;
+}
+.small-bottom-spacing{
+    margin-bottom:15px;
+}
+
+.side-spacing{
+    margin-right:10px;
+}
+
+
+/*page container stylings*/
+.page-layout{
+    background-color:rgb(241,241,241);
+    border-radius:10px;
+}
+
+
+
+/*recent uploads container on homepage*/
+.recent-panel{
+    display:inline-block;
+    width:30%;
+    margin-right:1%;
+    margin-top:10px;
+}
+.recent-img{
+    width:300px;
+    height:200px;
+    border-radius:10px;
+    object-fit: cover;
+}
+.recent-img:hover{
+    opacity:0.9;
+    cursor:pointer;
+}
+
+
+
+/*comment wrapper*/
+.comment-wrapper{
+    max-height:300px;
+    overflow-y:scroll;
+}
+
+.comment{
+    border-bottom:2px solid rgb(251,253,255);
+    padding:10px 20px;
+}
+
+.comment-author{
+    font-weight:Bold;
+    margin-right:10px;
+    display:block;
+}
+.comment-input{
+    width:100%;
+    padding:5px;
+}
+
+.comment-date{
+    font-size:12px;
+    font-style:italic;
+}
+
+
+
+
+
+/*make containers responsive*/
+
+@media only screen and (max-width: 768px){
+    .offset{
+        padding:10px;
+        width:98%;
+    }
+}
+
+
+@media only screen and (max-width:576px){
+    .recent-panel{
+        display:block;
+        width:100%;
+        margin: 10px auto;
+        overflow:hidden;
+    }
+    .recent-title{
+        display:none;
+    }
+    .recent-img{
+        width:100%;
+    }
+    .comment-wrapper{
+        height:200px;
+    }
+}
+
+

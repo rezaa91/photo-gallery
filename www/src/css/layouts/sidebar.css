@@ -1,0 +1,121 @@
+/*
+SIDE BAR styling
+*/
+.sidebar-container{
+    float:left;
+    height:100vh;
+    position:fixed;
+    z-index:99;
+}
+
+
+
+.sidebar-left{
+    width:40px;
+    float:left;
+    height:100vh;
+    padding:10px 5px;
+    border-right:2px solid #003333;
+    background-color:#407f7f;
+}
+
+.sidebar-right{
+    width:260px;
+    float:left;
+    height:100vh;
+    background-color:#669999;
+    box-shadow:2px 0px 4px -1px #003333;
+    display:none; /*display none on page startup - this is adjusted with javascript*/
+}
+
+.sidebar-left-icon{
+    color:black;
+    font-size:22px;
+    text-align:center;
+    display:block;
+}
+.sidebar-left-icon:hover{
+    color:white;
+    cursor:pointer;
+}
+
+.nav-title{
+    text-align:center;
+    padding:30px 0px;
+}
+.nav-title a{
+    color:#003333;
+    text-decoration:none;
+    font-size:18px;
+}
+.nav-title a:hover{
+    opacity:0.8;
+}
+
+.sidebar-link{
+    display:block;
+    text-align:left;
+    padding:15px 10px;
+    text-decoration: none;
+    color:black;
+    border-top:1px solid #0d4d4d;
+}
+
+#sidebar-nav{
+    border-bottom:1px solid #0d4d4d;
+}
+
+.sidebar-link:hover{
+    background-color:#0d4d4d;
+    color:white;
+    padding-left:20px;
+}
+.sidebar-link:active{
+    background-color:#0d3d3d;
+}
+
+#user-link{
+    position:absolute;
+    bottom:0px;
+    width:260px;
+}
+
+
+
+
+/*make responsive*/
+@media only screen and (max-width: 768px){
+    .sidebar-left{
+        background-color:inherit;
+        border-right:none;
+        height:50px;
+        width:100%;
+        background-color:#226666;
+        float:none;
+    }
+    .sidebar-left-icon{
+        text-align:left;
+        margin-left:20px;
+    }
+    .sidebar-container{
+        float:none;
+        clear:both;
+        height:auto;
+        width:100%;
+    }
+    .sidebar-right{
+        float:none;
+        clear:both;
+        width:100%;
+        height:auto;
+    }
+    .nav-title{
+        display:none;
+    }
+    #user-link{
+        position:relative;
+        width:100%;
+        background-color:#407f7f;
+    }
+}
+
