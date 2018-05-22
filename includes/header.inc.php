@@ -8,11 +8,13 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Ali Issaee" />
-        <meta name="keywords" content="Hull, photography, landscape" />
-        <meta name="description" content="AX Photography showcases a spectacular gallery of professional and elegant photography shot by Hull photographer Hamid Issaee" />
+        <meta name="keywords" content="Hull, photography, landscape, abstract, canon, professional, stunning, beautiful, pictures, photographs" />
+        <meta name="description" content="AX Photography showcases a spectacular gallery of professional and elegant visual captures shot by Hull photographer Hamid Issaee" />
         
         <!--set title-->
         <title><?php if(isset($page_title)){echo $page_title;} ?></title><!--page title-->
+        <!--favicon icon
+        <link rel="shortcut icon" type="image/jpeg" href="" />-->
         
         <!--fonts-->
         <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Kaushan+Script|Abril+Fatface" rel="stylesheet"> 
