@@ -1,4 +1,8 @@
 <?php
+
+#This script shows the homepage
+## Uses MySQL to access the 3 most recent uploads
+
 require('../core/init.php');
 
 

@@ -1,5 +1,11 @@
 <?php
 
+
+#This script shows individual photos in full size
+##This page allows users to comment on photos
+###This script allows administrators to edit individual photo settings - this is handled by edit_photo.php
+
+
 require('../core/init.php');
 
 if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
@@ -62,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && (isset($_GET['id'])) ){
             
             
             //display page
-            $page_title = $img['title'];
+            $page_title = strtolower($img['title']); //page title in lower case
             include('../includes/header.inc.php');
             include('../views/view.html');       
             include('../includes/footer.inc.php');

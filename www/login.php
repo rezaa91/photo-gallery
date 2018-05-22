@@ -1,5 +1,8 @@
 <?php
 
+#This script logs a user in and stores this information in a session in order to be able to traverse the site fluidly
+
+
 require('../core/init.php');
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){

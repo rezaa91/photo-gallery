@@ -1,5 +1,10 @@
 <?php
 
+#This script allows photos to be uploaded
+##Files must be image format
+###Filepaths are stored in the database, and photos are saved to the uploads/ dir
+
+
 require('../core/init.php');
 
 if( (isset($user) && $user->isAdmin() ) && ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT'])) ){ 

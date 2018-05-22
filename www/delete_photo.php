@@ -1,6 +1,6 @@
 <?php
 
-#this script deletes a photo from the database and folder
+#this script deletes a photo from the database and removed it from the uploads/ dir
 
 require('../core/init.php');
 

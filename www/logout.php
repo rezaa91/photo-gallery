@@ -1,5 +1,7 @@
 <?php
 
+#This script logs a user out by destroying the session
+
 require('../core/init.php');
 
 if(isset($user)){ //destroy the session

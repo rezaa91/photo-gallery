@@ -1,5 +1,8 @@
 <?php
 
+#This script registers new users to the websites and pushes them to log in once this is done
+
+
 require('../core/init.php');
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){

@@ -1,4 +1,9 @@
 <?php
+
+#This script displays a gallery
+## Displays photos by accessing them from MySQL and ordering and paginating results
+
+
 require('../core/init.php');
 
 

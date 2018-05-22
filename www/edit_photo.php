@@ -1,6 +1,8 @@
 <?php
 
-#this script confirms changes that administrator has made to individial titles and descriptions of photos
+#this script confirms changes that administrator has made to individual titles and descriptions of photos
+
+
 require('../core/init.php');
 
 if( ($_SERVER['REQUEST_METHOD'] == "POST") && ( isset($user) && ($user->isAdmin()) ) ){

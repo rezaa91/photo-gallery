@@ -1,5 +1,11 @@
 <?php
 
+
+# This script shows administrator information
+## This script shows current administrators as long as access to be able to create further administrators
+### Administrators can also delete their accounts via this script 
+
+
 require('../core/init.php');
 
 
