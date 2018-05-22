@@ -232,7 +232,7 @@ function view(){
         let next = 39; //key code for right arrow btn
         let previous = 37; //key code for left arrow btn
         let currentUrl = window.location.href;
-        let id = currentUrl.match(/id=\d$/); //find the id
+        let id = currentUrl.match(/id=\d+$/); //find the id
         id = id[0].substr(3); //get only the number from the id
         id = parseInt(id); //convert to int from str
         
