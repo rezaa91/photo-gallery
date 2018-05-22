@@ -34,18 +34,27 @@ add SSL certificate
 
 copy server directory structure as different to local dir, local dir structure as is will not work on server ----- COMPLETED
 
+Go through catch blocks and ensure error messages provide a link to a previous page
+
+MASSIVE BUG - Users can manually type a different id on edit.php to see other users details!!!***** ----- COMPLETED
+
+
 
 
 
 Bug Fixes for version 1.1.2
 
-Apply DRY using functions - especially for errors
+Apply DRY using functions for errors ----- COMPLETED
 
 Look in to minifying scripts
 
 Increased SEO
 
 Download fonts instead of using CDN link
+
+Add comments at the top of each script explaining what it does
+
+Test all catch blocks -------- COMPLETED
 
 
 
